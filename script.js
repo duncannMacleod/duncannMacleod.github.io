@@ -1,19 +1,13 @@
 fetch('referentiel-des-lignes.json')
     .then(response => response.json())
-    .then(lignesJson => {
-        // Filtrer les lignes avec "transportmode": "rail"
-        const lignesFiltrees = lignesJson.filter(ligne => ligne.fields.transportmode === "rail");
-        console.log(lignesFiltrees);
-
+    .then(data => {
         const linesLookup = {};
-        lignesFiltrees.forEach(line => {
-            linesLookup[line.fields.id_line] = line.fields.name_line;
+        data.forEach(record => {
+            const idLine = record.fields.id_line;
+            const nameLine = record.fields.name_line;
+            linesLookup[idLine] = nameLine;
         });
-        const linesColor= {};
-        lignesFiltrees.forEach(line=> {
-            linesColor[line.fields.name_line] = line.fields.colourprint_cmjn
-        });
-
+        
         function convertLineRef(lineRef) {
             const match = lineRef.match(/STIF:Line::([A-Z0-9]+):/);
             const idLineFromMatch = match ? match[1] : null;
@@ -21,8 +15,6 @@ fetch('referentiel-des-lignes.json')
             return linesLookup[idLineFromMatch];
 
         }
-
-
         function getDepartures() {
             const apiKey = "vD5EOap2m5uSuMZmcYgh3pRbmsDlfQ3s";
             const stopPoint = "STIF%3AStopPoint%3AQ%3A41251%3A";
@@ -43,6 +35,7 @@ fetch('referentiel-des-lignes.json')
         function processDepartures(data) {
             const departuresContainer = document.getElementById('departures-container');
             departuresContainer.innerHTML = ''; // Clear previous content
+            const linesColor= getColorDictionary (); //récupère un dictionnaire des noms de lignes et des couleurs associées
 
             const stopMonitoring = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'];
 
@@ -68,13 +61,14 @@ fetch('referentiel-des-lignes.json')
                             const expectedDepartureTime = convertToReadableTime(monitoredCall['AimedDepartureTime'] || 'Unknown');
                             if (!compareTimes(expectedDepartureTime)) {
                                 const convertedLineRef = convertLineRef(lineRef);
-
+                                const color = linesColor[convertedLineRef] || 'black';
                                 // Créer un conteneur pour chaque départ
                                 const departureContainer = document.createElement('div');
                                 departureContainer.className = 'departure';
 
                                 // Remplir le conteneur avec les informations du départ
-                                let departureMessage = `<p><font color=red>${convertedLineRef}</font>`
+                                let departureMessage = `<p style="color: ${color}">${lineRefValue}`;
+
                                 departureMessage+=`- ${journeyNoteValue}, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
                                 // Vérifier si ArrivalPlatformName existe dans monitoredCall
                                 if ('ArrivalPlatformName' in monitoredCall) {
@@ -119,7 +113,7 @@ fetch('referentiel-des-lignes.json')
             return `${hours}:${minutes}:${seconds}`;
         }
 
-
+    
         // Appeler la fonction pour obtenir les départs lors du chargement de la page
         getDepartures();
     })
@@ -180,4 +174,33 @@ function cmykToHex(cmykString) {
     const hex = rgbToHex(Math.round(r), Math.round(g), Math.round(b));
 
     return hex;
+}
+
+function getColorDictionary ()
+{
+    fetch('lines_color.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);  // Ajoutez cette ligne pour voir la structure des données
+
+        const linesColor = {};
+        if (data.results) {
+            data.results.forEach(result => {
+                const ligne = result.ligne;
+                const codeHexadecimal = result.code_hexadecimal;
+                linesColor[ligne] = codeHexadecimal;
+            });
+        } else {
+            console.error('Les données ne sont pas au format attendu (propriété "results").');
+        }
+        return linesColor;
+    })
+    .then(linesColor => {
+        console.log(linesColor);
+        // Utilisez le dictionnaire linesColor ici ou effectuez d'autres opérations
+    })
+    .catch(error => console.error('Erreur lors du chargement des données des couleurs :', error));
+
+
+    
 }
