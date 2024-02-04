@@ -41,10 +41,11 @@ fetch('referentiel-des-lignes.json')
 
                 function processDepartures(data) {
                     const departuresContainer = document.getElementById('departures-container');
+                    const stopInfo = document.getElementById('stopInfo');
                     departuresContainer.innerHTML = ''; // Clear previous content
-                    stopInfoContainer.innerHTML = '';
-                    const stopName = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'][0]['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['MonitoredCall'][stopPointName][0]['value'];
-                    stopInfoContainer.textContent = `Prochains départs à la gare ${stopName}`;
+                    stopInfo.innerHTML = '';
+                    const stopName = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'][0]['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['MonitoredCall']['StopPointName'][0]['value'];
+                    stopInfo.textContent = `Prochains départs à ${stopName}`;
 
 
                     const stopMonitoring = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'];
