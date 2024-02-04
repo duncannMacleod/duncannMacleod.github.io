@@ -9,7 +9,10 @@ fetch('referentiel-des-lignes.json')
         lignesFiltrees.forEach(line => {
             linesLookup[line.fields.id_line] = line.fields.name_line;
         });
-
+        const linesColor= {};
+        lignesFiltrees.forEach(line=> {
+            linesColor[line.fields.name_line] = line.fields.colourprint_cmjn
+        });
 
         function convertLineRef(lineRef) {
             const match = lineRef.match(/STIF:Line::([A-Z0-9]+):/);
@@ -71,8 +74,8 @@ fetch('referentiel-des-lignes.json')
                                 departureContainer.className = 'departure';
 
                                 // Remplir le conteneur avec les informations du départ
-                                let departureMessage = `<p>${convertedLineRef} - ${journeyNoteValue}, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
-
+                                let departureMessage = `<p><font color=red>${convertedLineRef}</font>`
+                                departureMessage+=`- ${journeyNoteValue}, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
                                 // Vérifier si ArrivalPlatformName existe dans monitoredCall
                                 if ('ArrivalPlatformName' in monitoredCall) {
                                     const platformName = monitoredCall['ArrivalPlatformName']['value'];
@@ -155,4 +158,26 @@ function downloadJSON(data, filename) {
     link.href = URL.createObjectURL(jsonBlob);
     link.download = filename;
     link.click();
+}
+
+function cmykToHex(cmykString) {
+    // Diviser la chaîne CMYK en valeurs individuelles
+    const cmykValues = cmykString.split(' ').map(Number);
+
+    // Assurer que la longueur est correcte (c, m, y, k)
+    if (cmykValues.length !== 4) {
+        console.error('La chaîne CMYK n\'a pas la longueur attendue.');
+        return null;
+    }
+
+    // Convertir les valeurs CMYK en valeurs RGB
+    const [c, m, y, k] = cmykValues;
+    const r = 255 * (1 - c) * (1 - k);
+    const g = 255 * (1 - m) * (1 - k);
+    const b = 255 * (1 - y) * (1 - k);
+
+    // Convertir les valeurs RGB en code hexadécimal
+    const hex = rgbToHex(Math.round(r), Math.round(g), Math.round(b));
+
+    return hex;
 }
