@@ -22,9 +22,9 @@ fetch('referentiel-des-lignes.json')
                     return linesLookup[idLineFromMatch];
 
                 }
-                function getDepartures() {
+                function getDepartures(stopPointAttribute) {
                     const apiKey = "vD5EOap2m5uSuMZmcYgh3pRbmsDlfQ3s";
-                    const stopPoint = "STIF%3AStopPoint%3AQ%3A41251%3A";
+                    const stopPoint = stopPointAttribute;
                     const apiUrl = `https://prim.iledefrance-mobilites.fr/marketplace/stop-monitoring?MonitoringRef=${stopPoint}`;
 
                     fetch(apiUrl, {
@@ -45,7 +45,7 @@ fetch('referentiel-des-lignes.json')
                     departuresContainer.innerHTML = ''; // Clear previous content
                     stopInfo.innerHTML = '';
                     const stopName = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'][0]['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['MonitoredCall']['StopPointName'][0]['value'];
-                    stopInfo.textContent = `Prochains départs à ${stopName}`;
+                    stopInfo.innerHTML = `<h1>Prochains départs à ${stopName}</p>`;
 
 
                     const stopMonitoring = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'];
@@ -126,24 +126,36 @@ fetch('referentiel-des-lignes.json')
 
 
                 // Appeler la fonction pour obtenir les départs lors du chargement de la page
-                getDepartures();
+
+                const scriptElement = document.querySelector('.script-loader');
+                const stopPointAttribute = scriptElement.getAttribute('stopPoint');
+
+                getDepartures(stopPointAttribute);
             })
     })
     .catch(error => console.error('Erreur lors du chargement des données des lignes :', error));
 
-    setInterval(function () {
+setInterval(function () {
     location.reload(); // Recharger la page
 }, 30000);
 
 // Ajouter un gestionnaire d'événements pour le bouton de téléchargement JSON
 const downloadButton = document.getElementById('downloadButton');
 downloadButton.addEventListener('click', function () {
-    getDeparturesAndDownloadJSON();
+    const scriptElement = document.querySelector('.script-loader');
+    const stopPointAttribute = scriptElement.getAttribute('stopPoint');
+    getDeparturesAndDownloadJSON(stopPointAttribute);
 });
 
-function getDeparturesAndDownloadJSON() {
+const backButton =document.getElementById('backButton').addEventListener('click', function() {
+    // Utilisez window.history pour revenir à la page précédente
+    window.history.back();
+});
+
+
+function getDeparturesAndDownloadJSON(stopPointAttribute) {
     const apiKey = "vD5EOap2m5uSuMZmcYgh3pRbmsDlfQ3s";
-    const stopPoint = "STIF%3AStopPoint%3AQ%3A41251%3A";
+    const stopPoint = stopPointAttribute;
     const apiUrl = `https://prim.iledefrance-mobilites.fr/marketplace/stop-monitoring?MonitoringRef=${stopPoint}`;
 
     fetch(apiUrl, {
