@@ -80,7 +80,7 @@ fetch('referentiel-des-lignes.json')
                                         // Remplir le conteneur avec les informations du départ
                                         let departureMessage = `<p> <span style="color:${color}"> ${convertedLineRef}`;
 
-                                        departureMessage += `- ${journeyNoteValue} </span>, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
+                                        departureMessage += ` - ${journeyNoteValue}</span>, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
                                         // Vérifier si ArrivalPlatformName existe dans monitoredCall
                                         if ('ArrivalPlatformName' in monitoredCall) {
                                             const platformName = monitoredCall['ArrivalPlatformName']['value'];
