@@ -63,6 +63,15 @@
         {
             "ligne": "C",
             "code_hexadecimal": "#F3D311"
+        },
+        {
+            "ligne": "TER Centre - Val-de-Loire",
+            "code_hexadecimal": "#034EA2"
+        },
+        {
+            "ligne": "TER Centre - Val de Loire",
+            "code_hexadecimal": "#034EA2"
         }
+
     ]
 }
