@@ -45,7 +45,7 @@ fetch('referentiel-des-lignes.json')
                     departuresContainer.innerHTML = ''; // Clear previous content
                     stopInfo.innerHTML = '';
                     const stopName = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'][0]['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['MonitoredCall']['StopPointName'][0]['value'];
-                    stopInfo.innerHTML = `<h1>Prochains départs à ${stopName}</p>`;
+                    stopInfo.innerHTML = `<h1>Prochains départs à la ${stopName}</p>`;
 
 
                     const stopMonitoring = data['Siri']['ServiceDelivery']['StopMonitoringDelivery'];
@@ -57,11 +57,15 @@ fetch('referentiel-des-lignes.json')
                             const monitoredVehicleJourney = visit['MonitoredVehicleJourney'];
                             const lineRef = monitoredVehicleJourney['LineRef']['value'];
                             const destinationName = monitoredVehicleJourney['DestinationName'][0]['value'];
-                            const journeyNote = monitoredVehicleJourney['JourneyNote'];
-                            if (journeyNote && journeyNote.length > 0 && journeyNote[0]['value']) {
+                            let journeyNote ;
+                            if (monitoredVehicleJourney['JourneyNote'] && monitoredVehicleJourney['JourneyNote'].length > 0 && monitoredVehicleJourney['JourneyNote'][0]['value']) {
                                 // La propriété JourneyNote existe et a une valeur non nulle
-                                const journeyNoteValue = journeyNote[0]['value'];
-
+                                journeyNote = monitoredVehicleJourney['JourneyNote'][0]['value'];
+                            }
+                            else
+                            {
+                                journeyNote=monitoredVehicleJourney['TrainNumbers']['TrainNumberRef'][0]['value'];
+                            }
                                 // Vérifier si MonitoredCall existe
                                 const monitoredCall = visit['MonitoredVehicleJourney']['MonitoredCall'];
                                 if (!monitoredCall) {
@@ -78,9 +82,9 @@ fetch('referentiel-des-lignes.json')
                                         departureContainer.className = 'departure';
 
                                         // Remplir le conteneur avec les informations du départ
-                                        let departureMessage = `<p> <span style="color:${color}"> ${convertedLineRef}`;
+                                        let departureMessage = `<p> <B><span style="color:${color}"> ${convertedLineRef}`;
 
-                                        departureMessage += ` - ${journeyNoteValue}</span>, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
+                                        departureMessage += ` - ${journeyNote}</span>, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
                                         // Vérifier si ArrivalPlatformName existe dans monitoredCall
                                         if ('ArrivalPlatformName' in monitoredCall) {
                                             const platformName = monitoredCall['ArrivalPlatformName']['value'];
@@ -89,7 +93,7 @@ fetch('referentiel-des-lignes.json')
                                         }
 
                                         // Ajouter le message de départ au conteneur
-                                        departureContainer.innerHTML = departureMessage + '</p>';
+                                        departureContainer.innerHTML = departureMessage + '</B></p>';
 
                                         departuresContainer.appendChild(departureContainer);
 
@@ -97,7 +101,7 @@ fetch('referentiel-des-lignes.json')
                                         departuresContainer.appendChild(document.createElement('br'));
                                     }
                                 }
-                            }
+                            
                         }
                     }
                 }
