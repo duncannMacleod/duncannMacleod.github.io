@@ -134,10 +134,27 @@ fetch('referentiel-des-lignes.json')
                 }
 
                 // Appeler la fonction pour obtenir les départs lors du chargement de la page
+                const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
+                function handleDarkModeChange(event) {
+                  if (event.matches) {
+                    // Le mode sombre est activé
+                    console.log("Le mode sombre est activé");
+                    // Ajoutez ici le code pour appliquer le thème sombre
+                  } else {
+                    // Le mode sombre est désactivé
+                    console.log("Le mode sombre est désactivé");
+                    // Ajoutez ici le code pour appliquer le thème clair si nécessaire
+                  }
+                }
+                
+                // Ajoutez un écouteur d'événements pour détecter les changements de préférences de couleur
+                darkModeQuery.addListener(handleDarkModeChange);
+                
+                // Vérifiez le statut actuel du mode sombre lors du chargement de la page
+                handleDarkModeChange(darkModeQuery);
                 const scriptElement = document.querySelector('.script-loader');
                 const stopPointAttribute = scriptElement.getAttribute('stopPoint');
-
                 getDepartures(stopPointAttribute);
             })
     })
