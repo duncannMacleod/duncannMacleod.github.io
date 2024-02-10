@@ -57,51 +57,56 @@ fetch('referentiel-des-lignes.json')
                             const monitoredVehicleJourney = visit['MonitoredVehicleJourney'];
                             const lineRef = monitoredVehicleJourney['LineRef']['value'];
                             const destinationName = monitoredVehicleJourney['DestinationName'][0]['value'];
-                            let journeyNote ;
+                            let journeyNote;
                             if (monitoredVehicleJourney['JourneyNote'] && monitoredVehicleJourney['JourneyNote'].length > 0 && monitoredVehicleJourney['JourneyNote'][0]['value']) {
                                 // La propriété JourneyNote existe et a une valeur non nulle
                                 journeyNote = monitoredVehicleJourney['JourneyNote'][0]['value'];
                             }
-                            else
-                            {
-                                journeyNote=monitoredVehicleJourney['TrainNumbers']['TrainNumberRef'][0]['value'];
+                            else {
+                                journeyNote = monitoredVehicleJourney['TrainNumbers']['TrainNumberRef'][0]['value'];
                             }
-                                // Vérifier si MonitoredCall existe
-                                const monitoredCall = visit['MonitoredVehicleJourney']['MonitoredCall'];
-                                if (!monitoredCall) {
-                                    console.error('MonitoredCall is undefined for a visit:', visit);
-                                    continue; // Passer à la visite suivante
+                            // Vérifier si MonitoredCall existe
+                            const monitoredCall = visit['MonitoredVehicleJourney']['MonitoredCall'];
+                            if (!monitoredCall) {
+                                console.error('MonitoredCall is undefined for a visit:', visit);
+                                continue; // Passer à la visite suivante
+                            }
+                            let expectedDepartureTime = "erreur"
+                            if ('AimedDepartureTime' in monitoredCall) {
+                                expectedDepartureTime = convertToReadableTime(monitoredCall['AimedDepartureTime'] || 'erreur');
+                            }
+                            else if ('ExpectedDepartureTime' in monitoredCall) {
+                                expectedDepartureTime = convertToReadableTime(monitoredCall['ExpectedDepartureTime'] || 'erreur');
+                            }
+                            if (!compareTimes(expectedDepartureTime) && (monitoredCall['StopPointName'][0]['value'] != destinationName)) {
+                                const convertedLineRef = convertLineRef(lineRef);
+                                const color = linesColor[convertedLineRef] || 'black';
+                                // Créer un conteneur pour chaque départ
+                                const departureContainer = document.createElement('div');
+                                departureContainer.className = 'departure';
+
+                                // Remplir le conteneur avec les informations du départ
+                                let departureMessage = `<p> <B><span style="color:${color}"> ${convertedLineRef}`;
+
+                                departureMessage += ` - ${journeyNote}</span>, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
+                                // Vérifier si ArrivalPlatformName existe dans monitoredCall
+                                if ('ArrivalPlatformName' in monitoredCall) {
+                                    const platformName = monitoredCall['ArrivalPlatformName']['value'];
+                                    // Ajouter le numéro de plateforme au message de départ
+                                    departureMessage += `, Voie: ${platformName}`;
                                 }
-                                if ('AimedDepartureTime' in monitoredCall) {
-                                    const expectedDepartureTime = convertToReadableTime(monitoredCall['AimedDepartureTime'] || 'Unknown');
-                                    if (!compareTimes(expectedDepartureTime)) {
-                                        const convertedLineRef = convertLineRef(lineRef);
-                                        const color = linesColor[convertedLineRef] || 'black';
-                                        // Créer un conteneur pour chaque départ
-                                        const departureContainer = document.createElement('div');
-                                        departureContainer.className = 'departure';
 
-                                        // Remplir le conteneur avec les informations du départ
-                                        let departureMessage = `<p> <B><span style="color:${color}"> ${convertedLineRef}`;
+                                // Ajouter le message de départ au conteneur
+                                departureContainer.innerHTML = departureMessage + '</B></p>';
 
-                                        departureMessage += ` - ${journeyNote}</span>, Destination: ${destinationName}, Départ: ${expectedDepartureTime}`;
-                                        // Vérifier si ArrivalPlatformName existe dans monitoredCall
-                                        if ('ArrivalPlatformName' in monitoredCall) {
-                                            const platformName = monitoredCall['ArrivalPlatformName']['value'];
-                                            // Ajouter le numéro de plateforme au message de départ
-                                            departureMessage += `, Voie: ${platformName}`;
-                                        }
+                                departuresContainer.appendChild(departureContainer);
 
-                                        // Ajouter le message de départ au conteneur
-                                        departureContainer.innerHTML = departureMessage + '</B></p>';
+                                // Ajouter une balise <br> pour passer à la ligne
+                                departuresContainer.appendChild(document.createElement('br'));
+                            }
 
-                                        departuresContainer.appendChild(departureContainer);
 
-                                        // Ajouter une balise <br> pour passer à la ligne
-                                        departuresContainer.appendChild(document.createElement('br'));
-                                    }
-                                }
-                            
+
                         }
                     }
                 }
@@ -128,7 +133,6 @@ fetch('referentiel-des-lignes.json')
                     return `${hours}:${minutes}:${seconds}`;
                 }
 
-
                 // Appeler la fonction pour obtenir les départs lors du chargement de la page
 
                 const scriptElement = document.querySelector('.script-loader');
@@ -151,7 +155,7 @@ downloadButton.addEventListener('click', function () {
     getDeparturesAndDownloadJSON(stopPointAttribute);
 });
 
-const backButton =document.getElementById('backButton').addEventListener('click', function() {
+const backButton = document.getElementById('backButton').addEventListener('click', function () {
     // Utilisez window.history pour revenir à la page précédente
     window.history.back();
 });
