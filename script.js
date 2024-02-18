@@ -40,6 +40,7 @@ fetch('referentiel-des-lignes.json')
                 }
 
                 function processDepartures(data) {
+                    
                     const departuresContainer = document.getElementById('departures-container');
                     const stopInfo = document.getElementById('stopInfo');
                     departuresContainer.innerHTML = ''; // Clear previous content
@@ -52,7 +53,19 @@ fetch('referentiel-des-lignes.json')
 
                     for (const stop of stopMonitoring) {
                         const monitoredVisits = stop['MonitoredStopVisit'];
-
+                        function compareDepartures(a, b) {
+                            const aTime = a.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime || a.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime;
+                            const bTime = b.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime || b.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime;
+                            
+                            if (aTime < bTime) {
+                                return -1;
+                            }
+                            if (aTime > bTime) {
+                                return 1;
+                            }
+                            return 0;
+                        }
+                        monitoredVisits.sort(compareDepartures);
                         for (const visit of monitoredVisits) {
                             const monitoredVehicleJourney = visit['MonitoredVehicleJourney'];
                             const lineRef = monitoredVehicleJourney['LineRef']['value'];
@@ -72,13 +85,16 @@ fetch('referentiel-des-lignes.json')
                                 continue; // Passer à la visite suivante
                             }
                             let expectedDepartureTime = "erreur"
+                            let expectedArrivalTime = "erreur"
                             if ('AimedDepartureTime' in monitoredCall) {
                                 expectedDepartureTime = convertToReadableTime(monitoredCall['AimedDepartureTime'] || 'erreur');
+                                expectedArrivalTime = convertToReadableTime(monitoredCall['AimedArrivalTime'] || 'erreur');
                             }
-                            else if ('ExpectedDepartureTime' in monitoredCall) {
+                            if ('ExpectedDepartureTime' in monitoredCall) {
                                 expectedDepartureTime = convertToReadableTime(monitoredCall['ExpectedDepartureTime'] || 'erreur');
+                                expectedArrivalTime = convertToReadableTime(monitoredCall['ExpectedArrivalTime'] || 'erreur');
                             }
-                            if (!compareTimes(expectedDepartureTime) && (monitoredCall['StopPointName'][0]['value'] != destinationName)) {
+                            if (!compareTimes(expectedDepartureTime) && (monitoredCall['StopPointName'][0]['value'] != destinationName) && !(expectedDepartureTime == expectedArrivalTime && !(lineRef=="STIF:Line::C01743:"||lineRef=="STIF:Line::C01742:"))){
                                 const convertedLineRef = convertLineRef(lineRef);
                                 const color = linesColor[convertedLineRef] || 'black';
                                 // Créer un conteneur pour chaque départ
@@ -113,8 +129,10 @@ fetch('referentiel-des-lignes.json')
 
                 function convertToReadableTime(dateTimeString) {
                     const dateTime = new Date(dateTimeString);
-                    const options = { hour: 'numeric', minute: 'numeric' };
-                    return dateTime.toLocaleString('fr-FR', options);
+                    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                    let output = dateTime.toLocaleString('fr-FR', options);
+                    console.log(output);
+                    return output;
                 }
                 function compareTimes(expectedTime) {
                     const currentTime = getCurrentTime(); // Vous devez définir une fonction pour obtenir l'heure actuelle
@@ -132,27 +150,6 @@ fetch('referentiel-des-lignes.json')
 
                     return `${hours}:${minutes}:${seconds}`;
                 }
-
-                // Appeler la fonction pour obtenir les départs lors du chargement de la page
-                const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-                function handleDarkModeChange(event) {
-                  if (event.matches) {
-                    // Le mode sombre est activé
-                    console.log("Le mode sombre est activé");
-                    // Ajoutez ici le code pour appliquer le thème sombre
-                  } else {
-                    // Le mode sombre est désactivé
-                    console.log("Le mode sombre est désactivé");
-                    // Ajoutez ici le code pour appliquer le thème clair si nécessaire
-                  }
-                }
-                
-                // Ajoutez un écouteur d'événements pour détecter les changements de préférences de couleur
-                darkModeQuery.addListener(handleDarkModeChange);
-                
-                // Vérifiez le statut actuel du mode sombre lors du chargement de la page
-                handleDarkModeChange(darkModeQuery);
                 const scriptElement = document.querySelector('.script-loader');
                 const stopPointAttribute = scriptElement.getAttribute('stopPoint');
                 getDepartures(stopPointAttribute);
@@ -202,3 +199,4 @@ function downloadJSON(data, filename) {
     link.download = filename;
     link.click();
 }
+
