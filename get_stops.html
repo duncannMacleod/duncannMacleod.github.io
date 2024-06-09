@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrêts d'un train SNCF</title>
+    <script>
+        async function getTrainStops(trainNumber) {
+            const apiKey = '68a03e0a-b3bd-4454-9076-d858eb1e49e3';
+            const url = `https://api.sncf.com/v1/coverage/sncf/vehicle_journeys/vehicle_journey:SNCF:2024-06-30:${trainNumber}:1187:Train/`;
+
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Basic ${btoa(apiKey + ':')}`
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                const data = await response.json();
+                if (!data.vehicle_journeys || data.vehicle_journeys.length === 0) {
+                    displayError('Aucun arrêt trouvé pour ce numéro de train.');
+                } else {
+                    displayStops(data);
+                }
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+                displayError('Une erreur est survenue lors de la récupération des données.');
+            }
+        }
+
+        function displayStops(data) {
+            const stopsElement = document.getElementById('stops');
+            stopsElement.innerHTML = '';
+
+            if (!data.vehicle_journeys || data.vehicle_journeys.length === 0) {
+                stopsElement.innerHTML = 'Aucun arrêt trouvé pour ce numéro de train.';
+                return;
+            }
+
+            const stops = data.vehicle_journeys[0].stop_times;
+            stops.forEach(stop => {
+                const stopInfo = document.createElement('div');
+                const arrivalTime = `${stop.arrival_time.substring(0, 2)}:${stop.arrival_time.substring(2, 4)}`;
+                stopInfo.innerText = `${stop.stop_point.name} - ${arrivalTime}`;
+                stopsElement.appendChild(stopInfo);
+            });
+        }
+
+        function displayError(message) {
+            const stopsElement = document.getElementById('stops');
+            stopsElement.innerHTML = '';
+            const errorInfo = document.createElement('div');
+            errorInfo.innerText = message;
+            stopsElement.appendChild(errorInfo);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const trainNumber = document.getElementById('trainNumber').value;
+            getTrainStops(trainNumber);
+        }
+    </script>
+</head>
+<body>
+    <h1>Recherche des arrêts d'un train SNCF</h1>
+    <form onsubmit="handleSubmit(event)">
+        <label for="trainNumber">Numéro du train :</label>
+        <input type="text" id="trainNumber" required>
+        <button type="submit">Rechercher</button>
+    </form>
+    <h2>Arrêts :</h2>
+    <div id="stops"></div>
+</body>
+</html>

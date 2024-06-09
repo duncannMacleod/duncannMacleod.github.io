@@ -1,0 +1,21 @@
+[
+    { "name": "MBC", "coordinates": [5.406559, 43.29614391] },
+    { "name": "MSC", "coordinates": [5.38119, 43.30322] },
+    { "name": "AXP", "coordinates": [5.445345, 43.522912] },
+    { "name": "SNT", "coordinates": [5.3578102, 43.3695993] },
+    { "name": "TLN", "coordinates": [5.929293, 43.128370] },
+    { "name": "AUB", "coordinates": [5.56658, 43.296045] },
+    { "name": "ARS", "coordinates": [4.63203, 43.684853] },
+    { "name": "MAS", "coordinates": [5.000264, 43.580704] },
+    { "name": "SAQ", "coordinates": [5.703858, 43.185509] },
+    { "name": "HYE", "coordinates": [6.124223, 43.108867] },
+    { "name": "LAC", "coordinates": [6.482498, 43.455524] },
+    { "name": "LES", "coordinates": [5.3213598, 43.363628] },
+    { "name": "XST", "coordinates": [5.0196445, 43.4088317] },
+    { "name": "CAN", "coordinates": [7.019682, 43.553839] },
+    { "name": "ISR", "coordinates": [4.9804272, 43.5153953] },
+    { "name": "VCE", "coordinates": [4.893273, 44.928049] },
+    { "name": "OGE", "coordinates": [4.819594, 44.137304] },
+    { "name": "MTR", "coordinates": [4.744792, 44.559079] },
+    { "name": "AVI", "coordinates": [4.805281, 43.9419] }
+]

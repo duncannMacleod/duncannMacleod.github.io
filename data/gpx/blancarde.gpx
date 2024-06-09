@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="overpass-turbo"><metadata><desc>Filtered OSM data converted to GPX by overpass turbo</desc><copyright author="The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."/><time>2024-04-28T00:01:59Z</time></metadata><trk><name>voie 3</name><desc>gauge=1435
+maxspeed=30
+name=voie 3
+railway=rail
+service=yard
+source=bing
+voltage=1500</desc><link href="http://osm.org/browse/way/51196011"/><trkseg><trkpt lat="43.2945308" lon="5.415747"/><trkpt lat="43.2945039" lon="5.4155336"/><trkpt lat="43.2944917" lon="5.4154024"/><trkpt lat="43.2944815" lon="5.4152519"/><trkpt lat="43.2944727" lon="5.4150192"/><trkpt lat="43.2944708" lon="5.414884"/><trkpt lat="43.2944746" lon="5.4147108"/><trkpt lat="43.2944806" lon="5.4145814"/><trkpt lat="43.2944898" lon="5.4144868"/><trkpt lat="43.2945049" lon="5.4143735"/><trkpt lat="43.2945181" lon="5.4142897"/><trkpt lat="43.2945412" lon="5.4141754"/><trkpt lat="43.2945753" lon="5.4140413"/><trkpt lat="43.2946282" lon="5.4138172"/><trkpt lat="43.2946551" lon="5.4136988"/><trkpt lat="43.2946928" lon="5.413487"/><trkpt lat="43.2947133" lon="5.4133489"/><trkpt lat="43.2947265" lon="5.4132503"/><trkpt lat="43.2947406" lon="5.4131625"/><trkpt lat="43.2947597" lon="5.4130592"/><trkpt lat="43.2948331" lon="5.4127015"/><trkpt lat="43.2950895" lon="5.4116338"/><trkpt lat="43.295368" lon="5.4104893"/><trkpt lat="43.2954279" lon="5.4102846"/><trkpt lat="43.2954717" lon="5.4101229"/><trkpt lat="43.2955" lon="5.4100062"/><trkpt lat="43.2955586" lon="5.4097633"/><trkpt lat="43.2956106" lon="5.4095304"/></trkseg></trk><trk><name>way/127347370</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347370"/><trkseg><trkpt lat="43.2964022" lon="5.4151293"/><trkpt lat="43.2964188" lon="5.4150119"/><trkpt lat="43.2964417" lon="5.4148117"/><trkpt lat="43.2964539" lon="5.4147386"/><trkpt lat="43.2964638" lon="5.414603"/><trkpt lat="43.2964644" lon="5.414454"/><trkpt lat="43.2964613" lon="5.4143516"/><trkpt lat="43.2964439" lon="5.4141643"/><trkpt lat="43.296428" lon="5.4140406"/><trkpt lat="43.2964024" lon="5.4138657"/><trkpt lat="43.2963561" lon="5.4135839"/><trkpt lat="43.2963116" lon="5.4132916"/><trkpt lat="43.2962595" lon="5.4129671"/></trkseg></trk><trk><name>way/127347371</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347371"/><trkseg><trkpt lat="43.2965336" lon="5.416177"/><trkpt lat="43.2963294" lon="5.416033"/></trkseg></trk><trk><name>way/127347374</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347374"/><trkseg><trkpt lat="43.2961895" lon="5.4167336"/><trkpt lat="43.2962278" lon="5.4161141"/></trkseg></trk><trk><name>way/127347375</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347375"/><trkseg><trkpt lat="43.2964765" lon="5.4156363"/><trkpt lat="43.2963097" lon="5.4158625"/></trkseg></trk><trk><name>way/127347376</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347376"/><trkseg><trkpt lat="43.2963023" lon="5.4158532"/><trkpt lat="43.2964496" lon="5.4156099"/></trkseg></trk><trk><name>way/127347378</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347378"/><trkseg><trkpt lat="43.2962044" lon="5.4161088"/><trkpt lat="43.2960741" lon="5.4167413"/></trkseg></trk><trk><name>way/127347379</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347379"/><trkseg><trkpt lat="43.2962296" lon="5.415819"/><trkpt lat="43.2962222" lon="5.415504"/></trkseg></trk><trk><name>way/127347380</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347380"/><trkseg><trkpt lat="43.2965682" lon="5.4159936"/><trkpt lat="43.2963408" lon="5.4159732"/></trkseg></trk><trk><name>way/127347381</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347381"/><trkseg><trkpt lat="43.2961568" lon="5.4160701"/><trkpt lat="43.2960736" lon="5.4161828"/></trkseg></trk><trk><name>way/127347382</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347382"/><trkseg><trkpt lat="43.2963372" lon="5.4159281"/><trkpt lat="43.2965577" lon="5.4158511"/></trkseg></trk><trk><name>way/127347383</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347383"/><trkseg><trkpt lat="43.2963237" lon="5.4160469"/><trkpt lat="43.2965145" lon="5.4162223"/></trkseg></trk><trk><name>way/127347384</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347384"/><trkseg><trkpt lat="43.2963184" lon="5.416744"/><trkpt lat="43.29625" lon="5.4161125"/></trkseg></trk><trk><name>way/127347385</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347385"/><trkseg><trkpt lat="43.2962733" lon="5.4158295"/><trkpt lat="43.2963598" lon="5.4155352"/></trkseg></trk><trk><name>way/127347386</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347386"/><trkseg><trkpt lat="43.2962506" lon="5.4158208"/><trkpt lat="43.2962719" lon="5.4156484"/></trkseg></trk><trk><name>way/127347387</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347387"/><trkseg><trkpt lat="43.2963192" lon="5.4160556"/><trkpt lat="43.2964962" lon="5.4162606"/></trkseg></trk><trk><name>way/127347389</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347389"/><trkseg><trkpt lat="43.2964216" lon="5.4155825"/><trkpt lat="43.2962918" lon="5.4158426"/></trkseg></trk><trk><name>way/127347390</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347390"/><trkseg><trkpt lat="43.2965472" lon="5.4158045"/><trkpt lat="43.2963343" lon="5.4159156"/></trkseg></trk><trk><name>way/127347391</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347391"/><trkseg><trkpt lat="43.2965185" lon="5.4157157"/><trkpt lat="43.296324" lon="5.4158871"/></trkseg></trk><trk><name>way/127347393</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347393"/><trkseg><trkpt lat="43.2961934" lon="5.4161036"/><trkpt lat="43.2960125" lon="5.4167305"/></trkseg></trk><trk><name>way/127347394</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347394"/><trkseg><trkpt lat="43.2962399" lon="5.4158192"/><trkpt lat="43.2962543" lon="5.4155077"/></trkseg></trk><trk><name>way/127347396</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347396"/><trkseg><trkpt lat="43.2963177" lon="5.415875"/><trkpt lat="43.2964997" lon="5.4156801"/></trkseg></trk><trk><name>way/127347397</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347397"/><trkseg><trkpt lat="43.2963398" lon="5.415988"/><trkpt lat="43.2965656" lon="5.4160412"/></trkseg></trk><trk><name>way/127347398</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347398"/><trkseg><trkpt lat="43.2962596" lon="5.4161098"/><trkpt lat="43.2963746" lon="5.4167169"/></trkseg></trk><trk><name>way/127347400</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347400"/><trkseg><trkpt lat="43.296284" lon="5.4158363"/><trkpt lat="43.2963909" lon="5.4155574"/></trkseg></trk><trk><name>way/127347401</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347401"/><trkseg><trkpt lat="43.2963377" lon="5.4160023"/><trkpt lat="43.2965585" lon="5.4160882"/></trkseg></trk><trk><name>way/127347403</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347403"/><trkseg><trkpt lat="43.2963017" lon="5.4160806"/><trkpt lat="43.2964504" lon="5.4163313"/></trkseg></trk><trk><name>way/127347404</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347404"/><trkseg><trkpt lat="43.2963106" lon="5.4160694"/><trkpt lat="43.2964749" lon="5.4162934"/></trkseg></trk><trk><name>way/127347407</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347407"/><trkseg><trkpt lat="43.2963294" lon="5.4159002"/><trkpt lat="43.2965335" lon="5.4157611"/></trkseg></trk><trk><name>way/127347409</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347409"/><trkseg><trkpt lat="43.2961817" lon="5.416096"/><trkpt lat="43.2960613" lon="5.4164155"/></trkseg></trk><trk><name>way/127347412</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347412"/><trkseg><trkpt lat="43.2962816" lon="5.4160986"/><trkpt lat="43.2963858" lon="5.4163827"/></trkseg></trk><trk><name>way/127347413</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347413"/><trkseg><trkpt lat="43.2962173" lon="5.4161126"/><trkpt lat="43.2961352" lon="5.4167469"/></trkseg></trk><trk><name>way/127347414</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347414"/><trkseg><trkpt lat="43.2962534" lon="5.4167612"/><trkpt lat="43.2962372" lon="5.4161142"/></trkseg></trk><trk><name>way/127347415</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347415"/><trkseg><trkpt lat="43.2965513" lon="5.4161352"/><trkpt lat="43.2963332" lon="5.4160214"/></trkseg></trk><trk><name>way/127347416</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347416"/><trkseg><trkpt lat="43.2962918" lon="5.4160906"/><trkpt lat="43.2964186" lon="5.4163576"/></trkseg></trk><trk><name>way/127347418</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/127347418"/><trkseg><trkpt lat="43.2961722" lon="5.416088"/><trkpt lat="43.2960881" lon="5.4162733"/></trkseg></trk><trk><name>way/141527252</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527252"/><trkseg><trkpt lat="43.2955183" lon="5.4160736"/><trkpt lat="43.2956123" lon="5.4157776"/><trkpt lat="43.2956632" lon="5.4156022"/><trkpt lat="43.2956918" lon="5.4154665"/><trkpt lat="43.2957114" lon="5.4153538"/><trkpt lat="43.2957236" lon="5.4152559"/><trkpt lat="43.295735" lon="5.4151268"/><trkpt lat="43.2957511" lon="5.4149313"/></trkseg></trk><trk><name>voie 57</name><desc>gauge=1435
+name=voie 57
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527254"/><trkseg><trkpt lat="43.2950112" lon="5.413895"/><trkpt lat="43.2950998" lon="5.4133871"/><trkpt lat="43.2951259" lon="5.4132526"/><trkpt lat="43.2951555" lon="5.413133"/><trkpt lat="43.2951828" lon="5.4130371"/><trkpt lat="43.2952196" lon="5.4129247"/><trkpt lat="43.2952914" lon="5.412739"/><trkpt lat="43.295337" lon="5.4126274"/><trkpt lat="43.2953687" lon="5.4125416"/><trkpt lat="43.2954043" lon="5.4124366"/></trkseg></trk><trk><name>way/141527258</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527258"/><trkseg><trkpt lat="43.2955798" lon="5.4161071"/><trkpt lat="43.2956201" lon="5.415962"/><trkpt lat="43.2956616" lon="5.4158172"/><trkpt lat="43.2956867" lon="5.4157035"/><trkpt lat="43.2957192" lon="5.4155255"/><trkpt lat="43.2957416" lon="5.4153766"/><trkpt lat="43.295758" lon="5.4152307"/><trkpt lat="43.2957677" lon="5.4151019"/></trkseg></trk><trk><name>voie G</name><desc>gauge=1435
+name=voie G
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527260"/><trkseg><trkpt lat="43.295058" lon="5.4157843"/><trkpt lat="43.2954929" lon="5.4144167"/><trkpt lat="43.2955552" lon="5.4141884"/><trkpt lat="43.2955886" lon="5.4140465"/><trkpt lat="43.2956084" lon="5.4139443"/><trkpt lat="43.2956316" lon="5.4137924"/><trkpt lat="43.2956474" lon="5.4136352"/><trkpt lat="43.2956535" lon="5.4135235"/><trkpt lat="43.2956545" lon="5.4134202"/><trkpt lat="43.2956547" lon="5.4132731"/><trkpt lat="43.2956415" lon="5.4130258"/></trkseg></trk><trk><name>way/141527264</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527264"/><trkseg><trkpt lat="43.2956277" lon="5.4110085"/><trkpt lat="43.2956167" lon="5.4111595"/><trkpt lat="43.2956074" lon="5.4112494"/><trkpt lat="43.2955915" lon="5.4113583"/><trkpt lat="43.2955732" lon="5.411472"/><trkpt lat="43.295552" lon="5.4115815"/><trkpt lat="43.2955176" lon="5.4117241"/><trkpt lat="43.2954836" lon="5.4118438"/><trkpt lat="43.2954449" lon="5.4119642"/><trkpt lat="43.2953985" lon="5.4120909"/><trkpt lat="43.2953601" lon="5.4121817"/><trkpt lat="43.2953141" lon="5.4122827"/><trkpt lat="43.2952563" lon="5.4123997"/><trkpt lat="43.295043" lon="5.4127845"/><trkpt lat="43.2949676" lon="5.4129352"/><trkpt lat="43.2949282" lon="5.4130176"/><trkpt lat="43.2948731" lon="5.4131363"/><trkpt lat="43.2948307" lon="5.4132345"/><trkpt lat="43.294808" lon="5.4132912"/><trkpt lat="43.2947343" lon="5.4134837"/><trkpt lat="43.2946681" lon="5.4136736"/><trkpt lat="43.2946282" lon="5.4138172"/></trkseg></trk><trk><name>voie 7</name><desc>gauge=1435
+name=voie 7
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527267"/><trkseg><trkpt lat="43.2946681" lon="5.4136736"/><trkpt lat="43.2947938" lon="5.4132818"/><trkpt lat="43.294846" lon="5.4131015"/><trkpt lat="43.2948995" lon="5.4129113"/><trkpt lat="43.295206" lon="5.4116319"/><trkpt lat="43.2954431" lon="5.4106327"/><trkpt lat="43.2954986" lon="5.4104025"/><trkpt lat="43.2955608" lon="5.4101278"/></trkseg></trk><trk><name>way/141527268</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527268"/><trkseg><trkpt lat="43.2954656" lon="5.4160468"/><trkpt lat="43.2956164" lon="5.4155512"/><trkpt lat="43.2956772" lon="5.4153565"/><trkpt lat="43.2957055" lon="5.4152378"/><trkpt lat="43.2957284" lon="5.4151145"/><trkpt lat="43.2957511" lon="5.4149313"/><trkpt lat="43.2957599" lon="5.4148295"/><trkpt lat="43.2957626" lon="5.4147815"/><trkpt lat="43.2957668" lon="5.414644"/></trkseg></trk><trk><name>voie 19</name><desc>gauge=1435
+name=voie 19
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527271"/><trkseg><trkpt lat="43.2951503" lon="5.4142229"/><trkpt lat="43.2952982" lon="5.4131741"/><trkpt lat="43.2953219" lon="5.4130163"/><trkpt lat="43.2953443" lon="5.4128809"/><trkpt lat="43.2953661" lon="5.4127708"/><trkpt lat="43.2954641" lon="5.4123655"/></trkseg></trk><trk><name>voie 9</name><desc>gauge=1435
+name=voie 9
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527272"/><trkseg><trkpt lat="43.2957264" lon="5.4091825"/><trkpt lat="43.2956833" lon="5.4093734"/><trkpt lat="43.2956562" lon="5.4095247"/><trkpt lat="43.2956435" lon="5.4096186"/><trkpt lat="43.2956338" lon="5.4097078"/><trkpt lat="43.2956257" lon="5.4097865"/><trkpt lat="43.2956084" lon="5.4098976"/><trkpt lat="43.2955906" lon="5.4099917"/><trkpt lat="43.2955608" lon="5.4101278"/><trkpt lat="43.2955318" lon="5.4102831"/><trkpt lat="43.2955161" lon="5.4103985"/><trkpt lat="43.2954968" lon="5.4105402"/><trkpt lat="43.2954776" lon="5.4106593"/><trkpt lat="43.2954148" lon="5.4109667"/><trkpt lat="43.2952801" lon="5.4115675"/><trkpt lat="43.295001" lon="5.4127289"/><trkpt lat="43.2949715" lon="5.4128386"/><trkpt lat="43.2949463" lon="5.4129173"/><trkpt lat="43.2949229" lon="5.4129898"/><trkpt lat="43.294898" lon="5.4130592"/><trkpt lat="43.2948307" lon="5.4132345"/></trkseg></trk><trk><name>voie 58</name><desc>gauge=1435
+name=voie 58
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527274"/><trkseg><trkpt lat="43.2955753" lon="5.4117417"/><trkpt lat="43.2955405" lon="5.411924"/><trkpt lat="43.2955144" lon="5.4120449"/><trkpt lat="43.2954837" lon="5.4121703"/><trkpt lat="43.2954446" lon="5.4122984"/><trkpt lat="43.2954043" lon="5.4124366"/><trkpt lat="43.2953387" lon="5.4126672"/><trkpt lat="43.2953134" lon="5.4127514"/><trkpt lat="43.2952799" lon="5.4128755"/><trkpt lat="43.2952443" lon="5.413019"/><trkpt lat="43.2952135" lon="5.4131551"/><trkpt lat="43.2951767" lon="5.4133565"/><trkpt lat="43.2950776" lon="5.4139198"/></trkseg></trk><trk><name>way/141527275</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527275"/><trkseg><trkpt lat="43.2953871" lon="5.4124285"/><trkpt lat="43.2953121" lon="5.4125898"/><trkpt lat="43.2952484" lon="5.4127114"/><trkpt lat="43.2952121" lon="5.4127756"/><trkpt lat="43.295135" lon="5.4129043"/><trkpt lat="43.295033" lon="5.4130699"/><trkpt lat="43.2949287" lon="5.4132318"/><trkpt lat="43.2948649" lon="5.4133386"/><trkpt lat="43.294787" lon="5.413489"/><trkpt lat="43.2947279" lon="5.4136104"/><trkpt lat="43.2946876" lon="5.4137005"/><trkpt lat="43.2946477" lon="5.4138049"/><trkpt lat="43.2946125" lon="5.4139101"/><trkpt lat="43.2945753" lon="5.4140413"/></trkseg></trk><trk><name>voie 21</name><desc>gauge=1435
+name=voie 21
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527276"/><trkseg><trkpt lat="43.2954934" lon="5.4123279"/><trkpt lat="43.2954636" lon="5.4125358"/><trkpt lat="43.2954398" lon="5.4127937"/><trkpt lat="43.295429" lon="5.4129287"/><trkpt lat="43.2954186" lon="5.413024"/><trkpt lat="43.2954127" lon="5.4130894"/><trkpt lat="43.2952458" lon="5.4142479"/></trkseg></trk><trk><name>voie D</name><desc>gauge=1435
+name=voie D
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527277"/><trkseg><trkpt lat="43.2955447" lon="5.4148706"/><trkpt lat="43.2955776" lon="5.4147571"/><trkpt lat="43.2956035" lon="5.4146411"/><trkpt lat="43.2956198" lon="5.4145642"/><trkpt lat="43.2956464" lon="5.4144211"/><trkpt lat="43.2956577" lon="5.4143225"/><trkpt lat="43.2956691" lon="5.4141968"/><trkpt lat="43.295674" lon="5.4140707"/><trkpt lat="43.2956808" lon="5.4139091"/></trkseg></trk><trk><name>way/141527278</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527278"/><trkseg><trkpt lat="43.2955379" lon="5.4167844"/><trkpt lat="43.2956464" lon="5.4164133"/><trkpt lat="43.2956774" lon="5.4162955"/><trkpt lat="43.2956948" lon="5.4162142"/><trkpt lat="43.2957089" lon="5.4161243"/><trkpt lat="43.2957181" lon="5.4160342"/><trkpt lat="43.2957275" lon="5.4159017"/><trkpt lat="43.2957432" lon="5.4156644"/><trkpt lat="43.2957628" lon="5.4152716"/><trkpt lat="43.2957677" lon="5.4151019"/><trkpt lat="43.2957686" lon="5.4147909"/><trkpt lat="43.2957668" lon="5.414644"/><trkpt lat="43.2957665" lon="5.4146062"/><trkpt lat="43.2957658" lon="5.4145252"/><trkpt lat="43.2957606" lon="5.4143983"/><trkpt lat="43.2957489" lon="5.4142588"/><trkpt lat="43.2957291" lon="5.4140203"/><trkpt lat="43.2957155" lon="5.4137588"/><trkpt lat="43.2957116" lon="5.4134417"/></trkseg></trk><trk><name>voie A</name><desc>gauge=1435
+name=voie A
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527279"/><trkseg><trkpt lat="43.295418" lon="5.4159608"/><trkpt lat="43.2956513" lon="5.4152249"/><trkpt lat="43.2956743" lon="5.4151473"/><trkpt lat="43.2956926" lon="5.4150611"/><trkpt lat="43.2957094" lon="5.4149596"/><trkpt lat="43.2957201" lon="5.4148503"/><trkpt lat="43.2957279" lon="5.4147336"/><trkpt lat="43.295735" lon="5.4146044"/><trkpt lat="43.2957372" lon="5.4144057"/><trkpt lat="43.2957354" lon="5.4141773"/><trkpt lat="43.2957291" lon="5.4140203"/></trkseg></trk><trk><name>voie 22</name><desc>gauge=1435
+name=voie 22
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527280"/><trkseg><trkpt lat="43.2952956" lon="5.4142609"/><trkpt lat="43.2954049" lon="5.4135145"/><trkpt lat="43.2954332" lon="5.4133134"/><trkpt lat="43.2954476" lon="5.4131862"/><trkpt lat="43.2954581" lon="5.4130726"/><trkpt lat="43.2954654" lon="5.4129419"/><trkpt lat="43.2954703" lon="5.4128036"/><trkpt lat="43.2954751" lon="5.4126468"/><trkpt lat="43.2954786" lon="5.4125328"/><trkpt lat="43.2954834" lon="5.412443"/><trkpt lat="43.2954934" lon="5.4123279"/><trkpt lat="43.2955039" lon="5.4122438"/><trkpt lat="43.2955341" lon="5.4120403"/><trkpt lat="43.2955524" lon="5.4119027"/><trkpt lat="43.2955753" lon="5.4117417"/><trkpt lat="43.2955905" lon="5.4116352"/><trkpt lat="43.2956011" lon="5.4115612"/><trkpt lat="43.2956121" lon="5.4114712"/><trkpt lat="43.2956396" lon="5.4112668"/><trkpt lat="43.2956511" lon="5.4111658"/><trkpt lat="43.2956611" lon="5.411061"/><trkpt lat="43.2956689" lon="5.410898"/><trkpt lat="43.295676" lon="5.4106743"/><trkpt lat="43.2956967" lon="5.4101014"/><trkpt lat="43.2957038" lon="5.4099796"/><trkpt lat="43.2957104" lon="5.4099076"/><trkpt lat="43.2957211" lon="5.4098198"/><trkpt lat="43.2957345" lon="5.4097235"/><trkpt lat="43.295747" lon="5.4096481"/><trkpt lat="43.2957809" lon="5.4094706"/><trkpt lat="43.2958055" lon="5.4093289"/><trkpt lat="43.2958253" lon="5.4091938"/><trkpt lat="43.2958626" lon="5.4089281"/><trkpt lat="43.2958793" lon="5.4088287"/><trkpt lat="43.2959041" lon="5.4087094"/><trkpt lat="43.295953" lon="5.4085267"/></trkseg></trk><trk><name>voie 56</name><desc>gauge=1435
+name=voie 56
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527282"/><trkseg><trkpt lat="43.2949453" lon="5.4138788"/><trkpt lat="43.2949886" lon="5.4136346"/><trkpt lat="43.2950208" lon="5.4134662"/><trkpt lat="43.2950459" lon="5.4133418"/><trkpt lat="43.2950759" lon="5.4132362"/><trkpt lat="43.2951123" lon="5.4131205"/><trkpt lat="43.295194" lon="5.412909"/><trkpt lat="43.2952675" lon="5.4127249"/><trkpt lat="43.2953258" lon="5.4125865"/><trkpt lat="43.2953871" lon="5.4124285"/><trkpt lat="43.2954263" lon="5.412331"/><trkpt lat="43.2954837" lon="5.4121703"/></trkseg></trk><trk><name>Voie B</name><desc>gauge=1435
+name=Voie B
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527284"/><trkseg><trkpt lat="43.2955652" lon="5.4152475"/><trkpt lat="43.2956196" lon="5.4150568"/><trkpt lat="43.2956448" lon="5.4149598"/><trkpt lat="43.295664" lon="5.4148556"/><trkpt lat="43.2956757" lon="5.4147678"/><trkpt lat="43.2956862" lon="5.4146661"/><trkpt lat="43.2956899" lon="5.4146042"/><trkpt lat="43.2956933" lon="5.414523"/><trkpt lat="43.2956945" lon="5.4144207"/><trkpt lat="43.2956909" lon="5.4142997"/><trkpt lat="43.295684" lon="5.414165"/><trkpt lat="43.2956816" lon="5.4140691"/><trkpt lat="43.2956808" lon="5.4139091"/><trkpt lat="43.2956852" lon="5.4137937"/></trkseg></trk><trk><name>voie 20</name><desc>gauge=1435
+name=voie 20
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527285"/><trkseg><trkpt lat="43.2951962" lon="5.4142349"/><trkpt lat="43.2953829" lon="5.4129298"/><trkpt lat="43.2953995" lon="5.4127822"/><trkpt lat="43.2954215" lon="5.412616"/><trkpt lat="43.2954371" lon="5.4125134"/><trkpt lat="43.2954641" lon="5.4123655"/><trkpt lat="43.2954925" lon="5.4122555"/><trkpt lat="43.2955113" lon="5.4121613"/><trkpt lat="43.2955341" lon="5.4120403"/></trkseg></trk><trk><name>voie 23</name><desc>gauge=1435
+name=voie 23
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527286"/><trkseg><trkpt lat="43.2953339" lon="5.4142672"/><trkpt lat="43.2954944" lon="5.4131655"/><trkpt lat="43.2955435" lon="5.4128259"/><trkpt lat="43.295561" lon="5.4126904"/><trkpt lat="43.2955737" lon="5.4125737"/><trkpt lat="43.2955827" lon="5.4124687"/><trkpt lat="43.2955903" lon="5.4123504"/><trkpt lat="43.2955952" lon="5.4122418"/><trkpt lat="43.2955994" lon="5.4120906"/></trkseg></trk><trk><name>voie E</name><desc>gauge=1435
+name=voie E
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527287"/><trkseg><trkpt lat="43.2951611" lon="5.4158107"/><trkpt lat="43.2954905" lon="5.4148002"/><trkpt lat="43.2955503" lon="5.4146089"/><trkpt lat="43.2955798" lon="5.4144996"/><trkpt lat="43.295604" lon="5.4143963"/><trkpt lat="43.2956296" lon="5.4142631"/><trkpt lat="43.2956601" lon="5.4140516"/><trkpt lat="43.2956723" lon="5.4139457"/><trkpt lat="43.2956852" lon="5.4137937"/><trkpt lat="43.2956979" lon="5.4135979"/><trkpt lat="43.2957116" lon="5.4134417"/></trkseg></trk><trk><name>voie F</name><desc>gauge=1435
+name=voie F
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527288"/><trkseg><trkpt lat="43.2951094" lon="5.4158105"/><trkpt lat="43.2955017" lon="5.4145655"/><trkpt lat="43.2955332" lon="5.4144426"/><trkpt lat="43.2955615" lon="5.4143192"/><trkpt lat="43.2955812" lon="5.414208"/><trkpt lat="43.2956035" lon="5.4140369"/><trkpt lat="43.2956316" lon="5.4137924"/></trkseg></trk><trk><name>Voie C</name><desc>gauge=1435
+name=Voie C
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/141527291"/><trkseg><trkpt lat="43.2955066" lon="5.4152153"/><trkpt lat="43.2955615" lon="5.4150373"/><trkpt lat="43.2955895" lon="5.4149262"/><trkpt lat="43.2956113" lon="5.4148322"/><trkpt lat="43.2956313" lon="5.4147222"/><trkpt lat="43.295646" lon="5.4146024"/><trkpt lat="43.2956547" lon="5.4144748"/><trkpt lat="43.2956618" lon="5.4143235"/><trkpt lat="43.2956691" lon="5.4141968"/></trkseg></trk><trk><name>way/228274487</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/228274487"/><trkseg><trkpt lat="43.2957116" lon="5.4134417"/><trkpt lat="43.2957065" lon="5.4132611"/><trkpt lat="43.2957011" lon="5.4131075"/><trkpt lat="43.2956891" lon="5.4129059"/><trkpt lat="43.2956723" lon="5.4126851"/><trkpt lat="43.2956452" lon="5.4123895"/><trkpt lat="43.2956266" lon="5.4121757"/><trkpt lat="43.295619" lon="5.4120715"/><trkpt lat="43.2956108" lon="5.4119816"/><trkpt lat="43.2956059" lon="5.4118985"/><trkpt lat="43.2956015" lon="5.411794"/></trkseg></trk><trk><name>way/263258567</name><desc>electrified=contact_line
+frequency=0
+gauge=1435
+railway=rail
+service=yard
+source=bing
+voltage=1500</desc><link href="http://osm.org/browse/way/263258567"/><trkseg><trkpt lat="43.2961815" lon="5.4079654"/><trkpt lat="43.2961096" lon="5.4081541"/><trkpt lat="43.2960657" lon="5.4082856"/><trkpt lat="43.296012" lon="5.4084547"/><trkpt lat="43.2959617" lon="5.4086342"/><trkpt lat="43.2959334" lon="5.4087523"/><trkpt lat="43.2959134" lon="5.4088622"/><trkpt lat="43.2958992" lon="5.4089662"/><trkpt lat="43.2958885" lon="5.4090749"/><trkpt lat="43.2958619" lon="5.40936"/><trkpt lat="43.2958449" lon="5.4096082"/><trkpt lat="43.2958355" lon="5.4097503"/><trkpt lat="43.2958187" lon="5.4099591"/><trkpt lat="43.2958058" lon="5.4101338"/></trkseg></trk><trk><name>way/417386429</name><desc>gauge=1435
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/417386429"/><trkseg><trkpt lat="43.2954279" lon="5.4102846"/><trkpt lat="43.2954683" lon="5.4101644"/><trkpt lat="43.2955152" lon="5.4100283"/><trkpt lat="43.2955527" lon="5.4099116"/><trkpt lat="43.2955954" lon="5.4097657"/></trkseg></trk><trk><name>voie 5</name><desc>gauge=1435
+name=voie 5
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/417386445"/><trkseg><trkpt lat="43.2946551" lon="5.4136988"/><trkpt lat="43.2947597" lon="5.4132631"/><trkpt lat="43.2948331" lon="5.4129488"/><trkpt lat="43.2952391" lon="5.4112537"/><trkpt lat="43.2954549" lon="5.4103484"/><trkpt lat="43.2955954" lon="5.4097657"/><trkpt lat="43.2956833" lon="5.4093734"/></trkseg></trk><trk><name>voie 45</name><desc>electrified=contact_line
+gauge=1435
+maxspeed=30
+name=voie 45
+railway=rail
+service=yard
+source=bing
+voltage=1500</desc><link href="http://osm.org/browse/way/665642889"/><trkseg><trkpt lat="43.2962595" lon="5.4129671"/><trkpt lat="43.2961754" lon="5.4124383"/><trkpt lat="43.2961392" lon="5.4121978"/><trkpt lat="43.2961042" lon="5.4119676"/><trkpt lat="43.2960671" lon="5.4117537"/><trkpt lat="43.2960151" lon="5.4114883"/><trkpt lat="43.2959593" lon="5.4112333"/><trkpt lat="43.295843" lon="5.4106146"/><trkpt lat="43.2958314" lon="5.4104789"/><trkpt lat="43.2958251" lon="5.4103341"/><trkpt lat="43.2958212" lon="5.4101906"/><trkpt lat="43.2958187" lon="5.4099591"/></trkseg></trk><trk><name>voie 260</name><desc>gauge=1435
+name=voie 260
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/670013197"/><trkseg><trkpt lat="43.2951807" lon="5.4149331"/><trkpt lat="43.2953919" lon="5.4143838"/><trkpt lat="43.2954478" lon="5.4142253"/><trkpt lat="43.2954898" lon="5.4140832"/><trkpt lat="43.2955166" lon="5.4139772"/><trkpt lat="43.2955393" lon="5.4138728"/><trkpt lat="43.2955557" lon="5.4137633"/><trkpt lat="43.2955708" lon="5.4136299"/><trkpt lat="43.2955874" lon="5.4134609"/><trkpt lat="43.2956115" lon="5.4131909"/><trkpt lat="43.2956225" lon="5.4130639"/><trkpt lat="43.2956284" lon="5.4129627"/><trkpt lat="43.2956323" lon="5.4128735"/><trkpt lat="43.2956331" lon="5.4127293"/></trkseg></trk><trk><name>voie E</name><desc>gauge=1435
+name=voie E
+railway=rail
+service=yard
+source=bing</desc><link href="http://osm.org/browse/way/670025601"/><trkseg><trkpt lat="43.2957116" lon="5.4134417"/><trkpt lat="43.2957242" lon="5.4132607"/><trkpt lat="43.2957333" lon="5.4131182"/><trkpt lat="43.2957358" lon="5.4130029"/><trkpt lat="43.2957382" lon="5.4128969"/><trkpt lat="43.2957356" lon="5.4127948"/><trkpt lat="43.295727" lon="5.4126475"/><trkpt lat="43.29568" lon="5.4117916"/><trkpt lat="43.2956753" lon="5.411663"/><trkpt lat="43.2956747" lon="5.4115585"/><trkpt lat="43.2956757" lon="5.4114532"/><trkpt lat="43.2956838" lon="5.411311"/><trkpt lat="43.2956943" lon="5.4111361"/><trkpt lat="43.2957065" lon="5.4109678"/><trkpt lat="43.2957217" lon="5.4107563"/><trkpt lat="43.2957318" lon="5.4106491"/><trkpt lat="43.295745" lon="5.4105554"/><trkpt lat="43.2957616" lon="5.41044"/><trkpt lat="43.2957821" lon="5.410316"/><trkpt lat="43.2958058" lon="5.4101338"/></trkseg></trk></gpx>
