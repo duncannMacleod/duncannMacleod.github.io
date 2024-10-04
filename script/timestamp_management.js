@@ -2,10 +2,9 @@
 fetch('data/index/timestamp_index.json')
     .then(response => response.json())
     .then(data => {
-        // Extraire les valeurs de time_h et time_m pour le premier élément (par défaut)
-        let currentIndex = 0;
-        const totalEvents = data.length;
-        
+        let currentIndex = 0; // Index de l'événement actuel
+        const totalEvents = data.length; // Nombre total d'événements
+
         // Sélectionner les éléments HTML où afficher les informations
         const textContainer = document.getElementById('textContainer');
         const currentEventElement = document.getElementById('current_event');
@@ -27,43 +26,38 @@ fetch('data/index/timestamp_index.json')
             }
         }
         
-        // Afficher l'heure, les événements et les messages de l'élément actuel
+        // Afficher l'heure et les messages de l'élément actuel
         function updateDisplay() {
             const currentEvent = data[currentIndex];
             const time_h = currentEvent.time_h;
             const time_m = currentEvent.time_m;
-            
+
             // Afficher l'heure
             textContainer.textContent = `Heure : ${time_h}h${time_m}`;
-
-            // Afficher le rang actuel
             currentEventElement.textContent = `Événement ${currentIndex + 1} sur ${totalEvents}`;
-            
+
+            // Mise à jour des marqueurs de train via un événement personnalisé
+            const event = new CustomEvent('timeChanged', { detail: { currentIndex } });
+            document.dispatchEvent(event);
+
             // Effacer les anciens messages
             textMessageElement.innerHTML = ''; // Vide le contenu précédent
             
             // Afficher les nouveaux messages
-            const messages = currentEvent.messages;
-            if (messages && messages.length > 0) {
+            const messages = currentEvent.messages || []; // S'assurer que messages est toujours un tableau
+            if (messages.length > 0) {
                 messages.forEach(message => {
-                    // Mappage du type de message
                     const messageType = mapMessageType(message.type);
-                    
-                    // Créer un élément pour le texte (ex. text1) avec la couleur appropriée
                     const typeElement = document.createElement('span');
                     typeElement.classList.add(messageType);
                     typeElement.textContent = `${messageType}`;
 
-                    // Créer un élément pour le message (ex. "blabla") en noir
                     const messageElement = document.createElement('span');
                     messageElement.classList.add('message-text');
                     messageElement.textContent = `: ${message.text}`;
-
-                    // Ajouter les deux éléments (type + texte du message) au conteneur
+                    
                     textMessageElement.appendChild(typeElement);
                     textMessageElement.appendChild(messageElement);
-
-                    // Ajouter un saut de ligne après chaque message pour meilleure lisibilité
                     textMessageElement.appendChild(document.createElement('br'));
                 });
             } else {
@@ -92,4 +86,3 @@ fetch('data/index/timestamp_index.json')
     .catch(error => {
         console.error('Erreur lors du chargement du fichier JSON:', error);
     });
-    

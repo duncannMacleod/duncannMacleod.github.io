@@ -1,46 +1,49 @@
-// Charger les données des gares
-fetch('data/index/gares_index.json')
-    .then(response => response.json())
-    .then(gares => {
-        // Charger les données des trains
-        return fetch('data/index/timestamp_index.json')
-            .then(response => response.json())
-            .then(data => ({ data, gares })); // Retourner les données des trains et des gares
-    })
-    .then(({ data, gares }) => {
-        const currentTrains = data[0].trains; // Prendre le premier ensemble de données de train
+// Charger les données des gares et des trains
+Promise.all([
+    fetch('data/index/gares_index.json').then(response => response.json()),
+    fetch('data/index/timestamp_index.json').then(response => response.json())
+])
+    .then(([gares, data]) => {
+        let currentIndex = 0; // Index de l'événement actuel
+        const totalEvents = data.length; // Nombre total d'événements
 
         // Créer une source vectorielle pour les marqueurs de train
         const trainSource = new ol.source.Vector();
 
-        // Fonction pour ajouter des marqueurs de train
-        Object.entries(currentTrains).forEach(([trainId, train]) => {
-            let trainCoords;
+        // Fonction pour mettre à jour les trains sur la carte
+        function updateTrainMarkers() {
+            const currentTrains = data[currentIndex].trains; // Obtenir les trains pour l'événement actuel
 
-            // Vérifier si le train est à la station ou en mouvement
-            if (train.location_type === "at_station") {
-                // Rechercher la gare dans le tableau gares
-                const station = gares.find(g => g.name === train.location);
-                if (station) {
-                    // Convertir les coordonnées de la gare
-                    trainCoords = ol.proj.transform(station.coordinates, 'EPSG:4326', 'EPSG:3857');
+            // Effacer les anciens marqueurs de train
+            trainSource.clear();
+
+            // Ajouter les marqueurs pour les trains actuels
+            Object.entries(currentTrains).forEach(([trainId, train]) => {
+                let trainCoords;
+
+                // Vérifier si le train est à la station ou en mouvement
+                if (train.location_type === "at_station") {
+                    const station = gares.find(g => g.name === train.location);
+                    if (station) {
+                        trainCoords = ol.proj.transform(station.coordinates, 'EPSG:4326', 'EPSG:3857');
+                    }
+                } else if (train.location_type === "inter_station") {
+                    trainCoords = train.location.split(',').map(Number); // Convertir les coordonnées string en nombres
+                    trainCoords = ol.proj.transform(trainCoords, 'EPSG:4326', 'EPSG:3857');
                 }
-            } else if (train.location_type === "inter_station") {
-                trainCoords = train.location.split(',').map(Number); // Convertir les coordonnées string en nombres
-                trainCoords = ol.proj.transform(trainCoords, 'EPSG:4326', 'EPSG:3857');
-            }
 
-            if (trainCoords) {
-                const trainMarker = new ol.Feature({
-                    geometry: new ol.geom.Point(trainCoords),
-                    name: `${trainId}`,
-                    state: train.state // Ajouter l'état du train pour le style
-                });
+                if (trainCoords) {
+                    const trainMarker = new ol.Feature({
+                        geometry: new ol.geom.Point(trainCoords),
+                        name: `${trainId}`,
+                        state: train.state // Ajouter l'état du train pour le style
+                    });
 
-                // Ajouter le marqueur à la source
-                trainSource.addFeature(trainMarker);
-            }
-        });
+                    // Ajouter le marqueur à la source
+                    trainSource.addFeature(trainMarker);
+                }
+            });
+        }
 
         // Créer une couche pour afficher les marqueurs de train
         const trainLayer = new ol.layer.Vector({
@@ -49,36 +52,35 @@ fetch('data/index/gares_index.json')
                 let color;
                 switch (feature.get('state')) {
                     case 'in_time':
-                        color = 'rgba(0, 255, 0, 1)'; // Vert avec opacité de 0.8
+                        color = 'rgba(0, 255, 0, 1)'; // Vert
                         break;
                     case 'yellow':
-                        color = 'rgba(255, 165, 0, 1)'; // Orange avec opacité de 0.8
+                        color = 'rgba(255, 165, 0, 1)'; // Orange
                         break;
                     default:
-                        color = 'rgba(255, 0, 0, 1)'; // Rouge avec opacité de 0.8
+                        color = 'rgba(255, 0, 0, 1)'; // Rouge
                 }
 
                 return new ol.style.Style({
                     text: new ol.style.Text({
-                        font: 'bold 8px Verdana', // Font style and size
-                        text: feature.get('name'), // Train number
+                        font: 'bold 8px Verdana', // Style de la police
+                        text: feature.get('name'), // Numéro du train
                         fill: new ol.style.Fill({
-                            color: 'black' // Text color
+                            color: 'black' // Couleur du texte
                         }),
                         backgroundFill: new ol.style.Fill({
-                            color: color // Background color based on the train state
+                            color: color // Couleur de fond selon l'état du train
                         }),
                         backgroundStroke: new ol.style.Stroke({
-                            color: 'black', // Border color for the rectangle
-                            width: 1 // Border width
+                            color: 'black', // Couleur de bordure pour le rectangle
+                            width: 1 // Largeur de la bordure
                         }),
-                        padding: [2, 2, 2, 2], // Padding around the text (top, right, bottom, left)
-                        textAlign: 'center', // Horizontally center the text
-                        scale: 1.2, // Scale text if needed
-                        offsetY: 15, // No offset, keeps the text in the center vertically
+                        padding: [2, 2, 2, 2], // Padding autour du texte
+                        textAlign: 'center', // Centre horizontal du texte
+                        scale: 1.2, // Échelle du texte
+                        offsetY: 15, // Pas de décalage, garde le texte centré verticalement
                     })
                 });
-                
 
             }
         });
@@ -87,6 +89,35 @@ fetch('data/index/gares_index.json')
         map.addLayer(trainLayer);
         local_stations_layer.setZIndex(4);
         main_stations_layer.setZIndex(4);
+
+        // Mise à jour initiale des marqueurs de train
+        updateTrainMarkers();
+
+        // Écouter les changements d'heure
+        document.addEventListener('timeChanged', (event) => {
+            currentIndex = event.detail.currentIndex; // Met à jour l'index actuel à partir de l'événement
+            updateTrainMarkers(); // Met à jour l'affichage et les marqueurs
+        });
+
+        // Ajouter des événements pour les boutons "précédent" et "suivant"
+        document.getElementById('prev_button').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateTrainMarkers(); // Met à jour l'affichage et les marqueurs
+            }
+        });
+
+        document.getElementById('next_button').addEventListener('click', () => {
+            if (currentIndex < totalEvents - 1) {
+                currentIndex++;
+                updateDisplay(); // Met à jour l'affichage et les marqueurs
+            }
+        });
+
+        document.getElementById('opacityRange').addEventListener('input', (event) => {
+            const opacityValue = event.target.value / 100; // Convertir la valeur en pourcentage
+            trainLayer.setOpacity(opacityValue); // Met à jour l'opacité de la couche de train
+        });
 
 
     })

@@ -29,12 +29,13 @@
         <label><span style="color: black">▬</span> non électrifié</label><br>
         <label><input type="checkbox" id="gpxLayer" checked>Lignes SNCF</label><br>
         <label><input type="checkbox" id="main_stations" checked>Gares Importantes</label><br>
-        <label><input type="checkbox" id="all_stations" checked>Toutes les Gares</label>
+        <label><input type="checkbox" id="all_stations" checked>Toutes les Gares</label><br>
+        <label for="opacityRange">Opacité des Trains:</label>
+        <input type="range" id="opacityRange" min="0" max="100" value="75" style="width: 100%;">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/ol@v9.1.0/dist/ol.js"></script>
     <script src="script/map_generation.js" type="text/javascript"></script>
     <script src="script/timestamp_management.js" type="text/javascript"></script>
     <script src="script/train_management.js" type="text/javascript"></script>
-    <script src="script/separator.js"></script> <!-- Script pour le séparateur -->
 </body>
 </html>

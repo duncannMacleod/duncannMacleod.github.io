@@ -12,25 +12,20 @@ body, html {
 }
 
 .left-column {
-    width: 50%; /* Définir une largeur initiale pour la colonne gauche */
+    width: 80%; /* Définir une largeur initiale pour la colonne gauche */
     height: 100%;
     background-color: #f0f0f0; /* Couleur de fond pour la colonne gauche */
 }
 
 .right-column {
-    width: 50%; /* Définir une largeur initiale pour la colonne droite */
+    width: 20%; /* Définir une largeur initiale pour la colonne droite */
     height: 100%;
     white-space: nowrap;
     background-color: #d0d0d0; /* Couleur de fond pour la colonne droite */
     padding-left: 20px;
 }
 
-.separator {
-    width: 10px; /* Largeur du séparateur */
-    cursor: ew-resize; /* Curseur pour glisser */
-    background-color: black; /* Couleur du séparateur */
-    z-index: 10; 
-}
+
 
 .full-screen-image {
     width: 100%;
@@ -90,4 +85,12 @@ body, html {
 }
 .message-text {
     color: black; /* Le texte du message reste noir */
-}   
+}
+#textMessage {
+    max-width: 300px; /* Ajuste cette largeur selon tes besoins */
+    word-wrap: break-word; /* Permet le retour à la ligne */
+    overflow-wrap: break-word; /* Assure le retour à la ligne pour les mots longs */
+    white-space: normal; /* Permet au texte de s'enrouler */
+    margin: 10px 0; /* Ajoute un espacement */
+    line-height: 1.5; /* Améliore la lisibilité */
+}
