@@ -9,12 +9,13 @@
 <body>
     <div class="container">
         <div class="left-column" id="map"></div>
+        <div class="separator" id="separator"></div> <!-- Séparateur -->
         <div class="right-column">
-            <h1><CENTER>Il est actuellement 16:15</CENTER></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem autem tempora non enim doloribus saepe, nihil molestiae maiores aperiam, consectetur ipsum laudantium, magni molestias voluptatum animi assumenda dolores fugiat sit.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem autem tempora non enim doloribus saepe, nihil molestiae maiores aperiam, consectetur ipsum laudantium, magni molestias voluptatum animi assumenda dolores fugiat sit.</p>
-            
-
+            <h1><CENTER><div id="textContainer"></div></CENTER></h1><br>
+            <button id="prev_button"><</button>
+            <div id="current_event"></div>
+            <button id="next_button">></button><br><br>
+            <div id="textMessage"></div>
         </div>
     </div>
     <div class="bottom-right">
@@ -22,7 +23,18 @@
         <a href="editeur.html" target="">Mode éditeur</a>
         <a href="http://example.com/credits" target="">Crédits</a>
     </div>
+    <div class="layer-control">
+        <label><span style="color: red">▬</span> 25kV monophasé</label><br>
+        <label><span style="color: blue">▬</span> 1,5kV continu</label><br>
+        <label><span style="color: black">▬</span> non électrifié</label><br>
+        <label><input type="checkbox" id="gpxLayer" checked>Lignes SNCF</label><br>
+        <label><input type="checkbox" id="main_stations" checked>Gares Importantes</label><br>
+        <label><input type="checkbox" id="all_stations" checked>Toutes les Gares</label>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/ol@v9.1.0/dist/ol.js"></script>
-    <script src="script/script.js" type="text/javascript"></script>
+    <script src="script/map_generation.js" type="text/javascript"></script>
+    <script src="script/timestamp_management.js" type="text/javascript"></script>
+    <script src="script/train_management.js" type="text/javascript"></script>
+    <script src="script/separator.js"></script> <!-- Script pour le séparateur -->
 </body>
 </html>

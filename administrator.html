@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Modifier l'heure</title>
+</head>
+<body>
+    <h1>Modifier l'heure affichée</h1>
+    <form id="timeForm">
+        <label for="newTime">Nouvelle heure (HH:MM): </label>
+        <input type="text" id="newTime" name="newTime" required pattern="\d{2}:\d{2}">
+        <button type="submit">Enregistrer</button>
+    </form>
+
+    <script>
+        document.getElementById('timeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const newTime = document.getElementById('newTime').value;
+            localStorage.setItem('currentTime', newTime);
+            alert('L\'heure a été mise à jour avec succès !');
+        });
+    </script>
+</body>
+</html>

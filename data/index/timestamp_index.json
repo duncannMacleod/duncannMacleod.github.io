@@ -1,0 +1,44 @@
+[
+    {
+      "time_h": "12",
+      "time_m": "00",
+      "trains": {
+        "879670": {
+          "location_type": "inter_station",
+          "location": "5.05800, 43.87504",
+          "state":"in_time"
+        },
+        "880130": {
+          "location_type": "at_station",
+          "location": "AXP",
+          "state":"yellow"
+        },
+        "880612": {
+          "location_type": "at_station",
+          "location": "SNT",
+          "state":"in_time"
+        },
+        "881433": {
+          "location_type": "at_station",
+          "location": "CSI",
+          "state":"in_time"
+        },
+        "881440": {
+          "location_type": "at_station",
+          "location": "LSM",
+          "state":"in_time"
+        },
+        "881429": {
+          "location_type": "at_station",
+          "location": "TLN",
+          "state":"in_time"
+        }
+      },
+      "messages":[
+        {
+          "type":"orange",
+          "text":"Réception d’une Fiche Événement Matériel - 27/04/2018 - 880130 - AXP"
+        }
+      ]
+    }
+  ]

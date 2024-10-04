@@ -3,6 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    font-family: 'Georgia';
 }
 
 .container {
@@ -11,19 +12,32 @@ body, html {
 }
 
 .left-column {
-    flex: 1;
+    width: 50%; /* Définir une largeur initiale pour la colonne gauche */
     height: 100%;
+    background-color: #f0f0f0; /* Couleur de fond pour la colonne gauche */
 }
 
 .right-column {
-    flex: 1;
+    width: 50%; /* Définir une largeur initiale pour la colonne droite */
     height: 100%;
+    white-space: nowrap;
+    background-color: #d0d0d0; /* Couleur de fond pour la colonne droite */
+    padding-left: 20px;
 }
+
+.separator {
+    width: 10px; /* Largeur du séparateur */
+    cursor: ew-resize; /* Curseur pour glisser */
+    background-color: black; /* Couleur du séparateur */
+    z-index: 10; 
+}
+
 .full-screen-image {
     width: 100%;
     height: 100%;
     object-fit: cover; /* L'image couvre toute la surface en conservant les proportions */
 }
+
 .bottom-right {
     position: fixed;
     bottom: 10px;
@@ -31,8 +45,49 @@ body, html {
     display: flex;
     gap: 5px;
 }
-.full-screen-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image couvre toute la surface en conservant les proportions */
+
+.layer-control {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 100;
+    opacity: 75%;
 }
+
+#prevButton, #nextButton, #current_event {
+    display: inline-block; /* Permet à ces éléments de rester sur la même ligne */
+    vertical-align: text-bottom; /* Aligne verticalement au milieu */
+}
+.text-blue {
+    color: blue; /* Couleur bleue pour le texte */
+}
+
+.text-red {
+    color: red; /* Couleur rouge pour le texte */
+}
+
+.text-green {
+    color: green; /* Couleur verte pour le texte */
+}
+.text-orange{
+    color: orange;
+}
+
+.text1 {
+    color: yellow; /* text1 sera en jaune */
+}
+.text2 {
+    color: red; /* text2 sera en orange */
+}
+.text3 {
+    color: rgb(255, 102, 0); /* text3 sera en rouge */
+}
+.text4 {
+    color: green; /* text4 sera en vert */
+}
+.message-text {
+    color: black; /* Le texte du message reste noir */
+}   
