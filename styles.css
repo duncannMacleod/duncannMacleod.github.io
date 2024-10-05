@@ -72,13 +72,13 @@ body, html {
 }
 
 .text1 {
-    color: yellow; /* text1 sera en jaune */
+    color: red; 
 }
 .text2 {
-    color: red; /* text2 sera en orange */
+    color: rgb(180, 177, 6); 
 }
 .text3 {
-    color: rgb(255, 102, 0); /* text3 sera en rouge */
+    color: rgb(255, 102, 0); 
 }
 .text4 {
     color: green; /* text4 sera en vert */
