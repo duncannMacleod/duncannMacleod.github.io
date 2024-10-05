@@ -16,9 +16,9 @@ fetch('data/index/timestamp_index.json')
                 case "green":
                     return "texte_vert";
                 case "yellow":
-                    return "texte_jaune";
+                    return "Téléphone";
                 case "orange":
-                    return "texte_orange";
+                    return "FAX";
                 case "red":
                     return "texte_rouge";
                 default:

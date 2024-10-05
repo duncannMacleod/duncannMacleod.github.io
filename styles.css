@@ -74,10 +74,10 @@ body, html {
 .texte_rouge {
     color: red; 
 }
-.texte_jaune {
+.Téléphone {
     color: rgb(180, 177, 6); 
 }
-.texte_orange {
+.FAX {
     color: rgb(255, 102, 0); 
 }
 .texte_vert {
@@ -87,7 +87,7 @@ body, html {
     color: black; /* Le texte du message reste noir */
 }
 #textMessage {
-    max-width: 300px; /* Ajuste cette largeur selon tes besoins */
+    max-width: 275px; /* Ajuste cette largeur selon tes besoins */
     word-wrap: break-word; /* Permet le retour à la ligne */
     overflow-wrap: break-word; /* Assure le retour à la ligne pour les mots longs */
     white-space: normal; /* Permet au texte de s'enrouler */
