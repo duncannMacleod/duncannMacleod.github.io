@@ -71,16 +71,16 @@ body, html {
     color: orange;
 }
 
-.text1 {
+.texte_rouge {
     color: red; 
 }
-.text2 {
+.texte_jaune {
     color: rgb(180, 177, 6); 
 }
-.text3 {
+.texte_orange {
     color: rgb(255, 102, 0); 
 }
-.text4 {
+.texte_vert {
     color: green; /* text4 sera en vert */
 }
 .message-text {

@@ -14,13 +14,13 @@ fetch('data/index/timestamp_index.json')
         function mapMessageType(type) {
             switch (type) {
                 case "green":
-                    return "text4";
+                    return "texte_vert";
                 case "yellow":
-                    return "text2";
+                    return "texte_jaune";
                 case "orange":
-                    return "text3";
+                    return "texte_orange";
                 case "red":
-                    return "text1";
+                    return "texte_rouge";
                 default:
                     return ""; // Cas par défaut si le type n'est pas reconnu
             }
