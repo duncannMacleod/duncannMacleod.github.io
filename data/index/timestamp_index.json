@@ -46,8 +46,23 @@
       "time_m": "15",
       "trains": {
         "879670": {
+          "location_type": "at_station",
+          "location": "MVG",
+          "state":"in_time"
+        },
+        "879645": {
           "location_type": "inter_station",
-          "location": "5.05800, 43.87504",
+          "location": "4.7959,43.9172",
+          "state":"in_time"
+        },
+        "879593": {
+          "location_type": "inter_station",
+          "location": "4.7911,43.9081",
+          "state":"in_time"
+        },
+        "879210": {
+          "location_type": "inter_station",
+          "location": "4.7911,43.9081",
           "state":"in_time"
         },
         "880130": {

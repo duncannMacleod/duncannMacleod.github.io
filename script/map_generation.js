@@ -114,8 +114,8 @@ fetch('data/index/gares_index.json')
     .then(response => response.json())
     .then(gares => {
         // Séparer les gares principales et locales
-        var mainStations = gares.filter(gare => gare.main); // Gares principales
-        var localStations = gares.filter(gare => !gare.main); // Gares locales
+        var mainStations = gares.filter(gare => gare.display === "main");        // Gares principales
+        var localStations = gares.filter(gare => gare.display === "local"); // Gares locales
 
         // Créer les marqueurs pour les gares principales
         var mainGareMarkers = mainStations.map(gare => {

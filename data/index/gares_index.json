@@ -5,7 +5,7 @@
             5.406559,
             43.29614391
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "MSC",
@@ -13,7 +13,7 @@
             5.38119,
             43.30322
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "AXP",
@@ -21,7 +21,7 @@
             5.445345,
             43.522912
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "SNT",
@@ -29,7 +29,7 @@
             5.3578102,
             43.3695993
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "TLN",
@@ -37,7 +37,7 @@
             5.929293,
             43.128370
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "AUB",
@@ -45,7 +45,7 @@
             5.56658,
             43.296045
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "ARS",
@@ -53,7 +53,7 @@
             4.63203,
             43.684853
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "MAS",
@@ -61,7 +61,7 @@
             5.000264,
             43.580704
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "SAQ",
@@ -69,7 +69,7 @@
             5.703858,
             43.185509
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "HYE",
@@ -77,7 +77,7 @@
             6.124223,
             43.108867
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "LAC",
@@ -85,7 +85,7 @@
             6.482498,
             43.455524
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "LES",
@@ -93,7 +93,7 @@
             5.3213598,
             43.363628
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "XST",
@@ -101,7 +101,7 @@
             5.0196445,
             43.4088317
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "CAN",
@@ -109,7 +109,7 @@
             7.019682,
             43.553839
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "ISR",
@@ -117,7 +117,7 @@
             4.9804272,
             43.5153953
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "VCE",
@@ -125,7 +125,7 @@
             4.893273,
             44.928049
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "OGE",
@@ -133,7 +133,7 @@
             4.819594,
             44.137304
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "MTR",
@@ -141,7 +141,7 @@
             4.744792,
             44.559079
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "AVI",
@@ -149,7 +149,7 @@
             4.805281,
             43.9419
         ],
-        "main": true
+        "display":"main"
     },
     {
         "name": "SAH",
@@ -157,7 +157,7 @@
             5.390412,
             43.3392414
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "CSI",
@@ -165,7 +165,7 @@
             5.553055,
             43.23406
         ],
-        "main": false
+        "display":"local"
     },
     {
         "name": "LSM",
@@ -173,6 +173,20 @@
             5.876966,
             43.116959
         ],
-        "main": false
+        "display":"local"
+    },
+    {
+        "name":"TSM",
+        "coordinates":[
+            5.972433,
+            43.125008
+        ]
+    },
+    {
+        "name":"MVG",
+        "coordinates":[
+            4.9082052,
+            43.9414696
+        ]
     }
 ]

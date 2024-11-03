@@ -53,7 +53,8 @@ body, html {
 }
 
 #prevButton, #nextButton, #current_event {
-    display: inline-block; /* Permet à ces éléments de rester sur la même ligne */
+    visibility: hidden;
+    display: inline-block;
     vertical-align: text-bottom; /* Aligne verticalement au milieu */
 }
 .text-blue {
