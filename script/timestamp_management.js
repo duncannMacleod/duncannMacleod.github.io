@@ -1,3 +1,11 @@
+// import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js';
+
+// // Écoute les changements de l'événement actuel
+// database.ref('events/current').on('value', (snapshot) => {
+// const currentEvent = snapshot.val();
+// document.getElementById("current_event").innerText = currentEvent;
+// });
+
 // Charger le fichier JSON avec fetch
 fetch('data/index/timestamp_index.json')
     .then(response => response.json())
@@ -9,7 +17,7 @@ fetch('data/index/timestamp_index.json')
         const textContainer = document.getElementById('textContainer');
         const currentEventElement = document.getElementById('current_event');
         const textMessageElement = document.getElementById('textMessage'); // Pour afficher les messages
-        
+
         // Fonction de mappage de message.type à text1, text2, etc.
         function mapMessageType(type) {
             switch (type) {
@@ -25,7 +33,7 @@ fetch('data/index/timestamp_index.json')
                     return ""; // Cas par défaut si le type n'est pas reconnu
             }
         }
-        
+
         // Afficher l'heure et les messages de l'élément actuel
         function updateDisplay() {
             const currentEvent = data[currentIndex];
@@ -42,7 +50,7 @@ fetch('data/index/timestamp_index.json')
 
             // Effacer les anciens messages
             textMessageElement.innerHTML = ''; // Vide le contenu précédent
-            
+
             // Afficher les nouveaux messages
             const messages = currentEvent.messages || []; // S'assurer que messages est toujours un tableau
             if (messages.length > 0) {
@@ -55,7 +63,7 @@ fetch('data/index/timestamp_index.json')
                     const messageElement = document.createElement('span');
                     messageElement.classList.add('message-text');
                     messageElement.textContent = `: ${message.text}`;
-                    
+
                     textMessageElement.appendChild(typeElement);
                     textMessageElement.appendChild(messageElement);
                     textMessageElement.appendChild(document.createElement('br'));
@@ -68,21 +76,25 @@ fetch('data/index/timestamp_index.json')
         // Initialiser l'affichage
         updateDisplay();
 
-        // Ajouter des événements pour les boutons "précédent" et "suivant"
-        document.getElementById('prev_button').addEventListener('click', () => {
+        function changeEvent(newEvent) {
+            database.ref('events/current').set(newEvent);
+        }
+        
+        document.getElementById("prev_button").addEventListener("click", function () {
+            // Logique pour déterminer l'événement précédent
             if (currentIndex > 0) {
                 currentIndex--;
                 updateDisplay();
             }
+            changeEvent(currentIndex);
         });
-
-        document.getElementById('next_button').addEventListener('click', () => {
+        
+        document.getElementById("next_button").addEventListener("click", function () {
+            // Logique pour déterminer l'événement suivant
             if (currentIndex < totalEvents - 1) {
                 currentIndex++;
                 updateDisplay();
             }
-        });
-    })
-    .catch(error => {
-        console.error('Erreur lors du chargement du fichier JSON:', error);
+            changeEvent(currentIndex);
+        })
     });
