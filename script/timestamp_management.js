@@ -1,31 +1,14 @@
-
-
 // Charger le fichier JSON avec fetch
 fetch('data/index/timestamp_index.json')
     .then(response => response.json())
-    .then(data => {
-        let currentIndex
-        // Connectez-vous au WebSocket de l'API
-        const socket = io('https://duncannmacleod-github-io-1.onrender.com');
-
-        // Écoutez l'événement 'variable_updated' pour mettre à jour l'affichage
-        socket.on('variable_updated', (data) => {
-            console.log('Mise à jour reçue via WebSocket :', data);
-            data = currentIndex
-        });
-
-        // Détectez les connexions
-        socket.on('connect', () => {
-            console.log('Connecté au serveur WebSocket');
-        });
-
-        currentIndex = getVariable(); // Index de l'événement actuel
+    .then(async data => {
+        let currentIndex = 0; // Initialise l'index
         const totalEvents = data.length; // Nombre total d'événements
 
         // Sélectionner les éléments HTML où afficher les informations
         const textContainer = document.getElementById('textContainer');
         const currentEventElement = document.getElementById('current_event');
-        const textMessageElement = document.getElementById('textMessage'); // Pour afficher les messages
+        const textMessageElement = document.getElementById('textMessage');
 
         // Fonction de mappage de message.type à text1, text2, etc.
         function mapMessageType(type) {
@@ -43,20 +26,22 @@ fetch('data/index/timestamp_index.json')
             }
         }
 
-        // Afficher l'heure et les messages de l'élément actuel
+        // Fonction pour afficher l'heure et les messages de l'élément actuel
         function updateDisplay() {
             const currentEvent = data[currentIndex];
-            console.log(currentEvent)
+            if (!currentEvent) {
+                console.error('Événement introuvable pour l\'index :', currentIndex);
+                return;
+            }
+
+            console.log('Affichage mis à jour pour :', currentEvent);
+
             const time_h = currentEvent.time_h;
             const time_m = currentEvent.time_m;
 
             // Afficher l'heure
             textContainer.textContent = `Heure : ${time_h}h${time_m}`;
             currentEventElement.textContent = `Événement ${currentIndex + 1} sur ${totalEvents}`;
-
-            // Mise à jour des marqueurs de train via un événement personnalisé
-            const event = new CustomEvent('timeChanged', { detail: { currentIndex } });
-            document.dispatchEvent(event);
 
             // Effacer les anciens messages
             textMessageElement.innerHTML = ''; // Vide le contenu précédent
@@ -83,30 +68,45 @@ fetch('data/index/timestamp_index.json')
             }
         }
 
-        // Initialiser l'affichage
-        updateDisplay();
+        // Connectez-vous au WebSocket de l'API
+        const socket = io('https://duncannmacleod-github-io-1.onrender.com');
 
-
-
-        document.getElementById("prev_button").addEventListener("click", function () {
-            // Logique pour déterminer l'événement précédent
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateDisplay();
-            }
-            updateVariable(currentIndex)
+        // Écoutez les mises à jour via WebSocket
+        socket.on('variable_updated', (data) => {
+            console.log('Mise à jour reçue via WebSocket :', data);
+            currentIndex = data.value; // Mettre à jour l'index actuel
+            updateDisplay(); // Mettre à jour l'affichage
         });
 
-        document.getElementById("next_button").addEventListener("click", function () {
-            // Logique pour déterminer l'événement suivant
+        // Détectez les connexions WebSocket
+        socket.on('connect', () => {
+            console.log('Connecté au serveur WebSocket');
+        });
+
+        // Récupérer l'index actuel depuis l'API avant d'initialiser l'affichage
+        currentIndex = await getVariable();
+        updateDisplay();
+
+        // Bouton "Précédent"
+        document.getElementById("prev_button").addEventListener("click", async function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                await updateVariable(currentIndex); // Mettre à jour la variable côté serveur
+                updateDisplay(); // Mettre à jour l'affichage
+            }
+        });
+
+        // Bouton "Suivant"
+        document.getElementById("next_button").addEventListener("click", async function () {
             if (currentIndex < totalEvents - 1) {
                 currentIndex++;
-                updateDisplay();
+                await updateVariable(currentIndex); // Mettre à jour la variable côté serveur
+                updateDisplay(); // Mettre à jour l'affichage
             }
-            updateDisplay(currentIndex)
-        })
+        });
     });
 
+// Fonction pour récupérer la variable actuelle depuis l'API
 async function getVariable() {
     try {
         const response = await fetch('https://duncannmacleod-github-io-1.onrender.com/get_variable');
@@ -118,9 +118,11 @@ async function getVariable() {
         return data.value; // Retourne la valeur (int ou autre type attendu)
     } catch (error) {
         console.error('Erreur lors de la récupération de la variable :', error);
-        return null; // Retourne `null` en cas d'erreur
+        return 0; // Retourne une valeur par défaut
     }
 }
+
+// Fonction pour mettre à jour la variable côté serveur
 async function updateVariable(newValue) {
     try {
         const response = await fetch('https://duncannmacleod-github-io-1.onrender.com/set_variable', {
@@ -131,14 +133,10 @@ async function updateVariable(newValue) {
             body: JSON.stringify({ value: newValue }),
         });
 
-        if (response.ok) {
-            console.log('Variable mise à jour avec succès');
-            getVariable(); // Mettre à jour l'affichage après modification
-        } else {
+        if (!response.ok) {
             console.error('Erreur lors de la mise à jour de la variable');
         }
     } catch (error) {
         console.error('Erreur réseau :', error);
     }
 }
-
