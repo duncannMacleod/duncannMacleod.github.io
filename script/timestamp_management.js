@@ -72,9 +72,9 @@ fetch('data/index/timestamp_index.json')
         const socket = io('https://duncannmacleod-github-io-1.onrender.com');
 
         // Écoutez les mises à jour via WebSocket
-        socket.on('variable_updated', (data) => {
-            console.log('Mise à jour reçue via WebSocket :', data);
-            currentIndex = data.value; // Mettre à jour l'index actuel
+        socket.on('variable_updated', (variable) => {
+            console.log('Mise à jour reçue via WebSocket :', variable);
+            currentIndex = variable.value; // Mettre à jour l'index actuel
             updateDisplay(); // Mettre à jour l'affichage
         });
 
@@ -113,9 +113,9 @@ async function getVariable() {
         if (!response.ok) {
             throw new Error('Erreur lors de la récupération de la variable');
         }
-        const data = await response.json();
-        console.log('Valeur actuelle de la variable :', data.value); // Affiche la valeur pour le debug
-        return data.value; // Retourne la valeur (int ou autre type attendu)
+        const variable = await response.json();
+        console.log('Valeur actuelle de la variable :', variable.value); // Affiche la valeur pour le debug
+        return variable.value; // Retourne la valeur (int ou autre type attendu)
     } catch (error) {
         console.error('Erreur lors de la récupération de la variable :', error);
         return 0; // Retourne une valeur par défaut
