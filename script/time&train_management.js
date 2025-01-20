@@ -4,13 +4,14 @@ Promise.all([
     fetch('data/index/timestamp_index.json').then(response => response.json())
 ])
     .then(async ([gares, data]) => {
-        let currentIndex = 0; // Index de l'événement actuel
+        let currentIndex // Index de l'événement actuel
         const totalEvents = data.length; // Nombre total d'événements
         // Sélectionner les éléments HTML où afficher les informations
         const textContainer = document.getElementById('textContainer');
         const currentEventElement = document.getElementById('current_event');
         const textMessageElement = document.getElementById('textMessage');
         // Initialisation des sources et couches OpenLayers
+        
         const trainSource = new ol.source.Vector();
         const trainLayer = new ol.layer.Vector({
             source: trainSource,
@@ -175,7 +176,7 @@ async function updateVariable(newValue) {
             body: JSON.stringify({ value: newValue }),
             
         });
-        console.log("updateVariable:"+newValue);
+        console.log(getVariable());
         if (!response.ok) console.error('Erreur lors de la mise à jour de la variable');
     } catch (error) {
         console.error('Erreur réseau :', error);
