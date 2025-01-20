@@ -118,7 +118,7 @@ async function getVariable() {
         return variable.value; // Retourne la valeur (int ou autre type attendu)
     } catch (error) {
         console.error('Erreur lors de la récupération de la variable :', error);
-        return 0; // Retourne une valeur par défaut
+        return null; // Retourne une valeur par défaut
     }
 }
 
