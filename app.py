@@ -1,6 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_socketio import SocketIO, emit
 
+import collections
+if not hasattr(collections, 'MutableMapping'):
+    import collections.abc
+    collections.MutableMapping = collections.abc.MutableMapping
+
+
 # Initialisation de l'application Flask et SocketIO
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'votre_cle_secrete'
