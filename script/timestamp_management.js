@@ -46,6 +46,7 @@ fetch('data/index/timestamp_index.json')
         // Afficher l'heure et les messages de l'élément actuel
         function updateDisplay() {
             const currentEvent = data[currentIndex];
+            console.log(currentEvent)
             const time_h = currentEvent.time_h;
             const time_m = currentEvent.time_m;
 
