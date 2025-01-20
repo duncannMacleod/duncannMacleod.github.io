@@ -122,6 +122,7 @@ Promise.all([
         });
 
         currentIndex = await getVariable();
+        console.log(currentIndex)
         updateDisplay();
         updateTrainMarkers();
 
@@ -130,8 +131,7 @@ Promise.all([
             if (currentIndex > 0) {
                 currentIndex--;
                 await updateVariable(currentIndex);
-                updateDisplay();
-                updateTrainMarkers();
+                
             }
         });
 
@@ -139,8 +139,7 @@ Promise.all([
             if (currentIndex < totalEvents - 1) {
                 currentIndex++;
                 await updateVariable(currentIndex);
-                updateDisplay();
-                updateTrainMarkers();
+                
             }
         });
 
