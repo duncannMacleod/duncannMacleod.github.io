@@ -6,7 +6,10 @@ Promise.all([
     .then(async ([gares, data]) => {
         let currentIndex = 0; // Index de l'événement actuel
         const totalEvents = data.length; // Nombre total d'événements
-
+        // Sélectionner les éléments HTML où afficher les informations
+        const textContainer = document.getElementById('textContainer');
+        const currentEventElement = document.getElementById('current_event');
+        const textMessageElement = document.getElementById('textMessage');
         // Initialisation des sources et couches OpenLayers
         const trainSource = new ol.source.Vector();
         const trainLayer = new ol.layer.Vector({
