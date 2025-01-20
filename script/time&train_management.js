@@ -159,6 +159,7 @@ async function getVariable() {
         const response = await fetch('https://duncannmacleod-github-io-1.onrender.com/get_variable');
         if (!response.ok) throw new Error('Erreur lors de la récupération de la variable');
         const variable = await response.json();
+        console.log("getVariable:"+variable);
         return variable.value;
     } catch (error) {
         console.error('Erreur lors de la récupération de la variable :', error);
@@ -172,7 +173,9 @@ async function updateVariable(newValue) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ value: newValue }),
+            
         });
+        console.log("updateVariable:"+newValue);
         if (!response.ok) console.error('Erreur lors de la mise à jour de la variable');
     } catch (error) {
         console.error('Erreur réseau :', error);
