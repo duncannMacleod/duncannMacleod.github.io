@@ -89,7 +89,7 @@ Promise.all([
         map.addLayer(trainLayer);
         local_stations_layer.setZIndex(4);
         main_stations_layer.setZIndex(4);
-
+        
         // Mise à jour initiale des marqueurs de train
         updateTrainMarkers();
 
@@ -99,20 +99,7 @@ Promise.all([
             updateTrainMarkers(); // Met à jour l'affichage et les marqueurs
         });
 
-        // Ajouter des événements pour les boutons "précédent" et "suivant"
-        document.getElementById('prev_button').addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateTrainMarkers(); // Met à jour l'affichage et les marqueurs
-            }
-        });
-
-        document.getElementById('next_button').addEventListener('click', () => {
-            if (currentIndex < totalEvents - 1) {
-                currentIndex++;
-                updateDisplay(); // Met à jour l'affichage et les marqueurs
-            }
-        });
+        
 
         document.getElementById('opacityRange').addEventListener('input', (event) => {
             const opacityValue = event.target.value / 100; // Convertir la valeur en pourcentage
