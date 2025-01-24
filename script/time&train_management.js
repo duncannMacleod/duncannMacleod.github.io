@@ -165,7 +165,7 @@ Promise.all([
 // Fonctions utilitaires
 async function getVariable() {
     try {
-        const response = await fetch('https://duncannmacleod-github-io-1.onrender.com/get_variable');
+        const response = await fetch('https://duncannmacleod-github-io-3ye0.onrender.com/get_variable');
         if (!response.ok) throw new Error('Erreur lors de la récupération de la variable');
         const variable = await response.json();
         return variable.value;
@@ -177,7 +177,7 @@ async function getVariable() {
 
 async function updateVariable(newValue) {
     try {
-        const response = await fetch('https://duncannmacleod-github-io-1.onrender.com/set_variable', {
+        const response = await fetch('https://duncannmacleod-github-io-3ye0.onrender.com/set_variable', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ value: newValue }),
