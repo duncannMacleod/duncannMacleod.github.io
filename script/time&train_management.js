@@ -160,7 +160,6 @@ async function getVariable() {
         const response = await fetch('https://duncannmacleod-github-io-1.onrender.com/get_variable');
         if (!response.ok) throw new Error('Erreur lors de la récupération de la variable');
         const variable = await response.json();
-        console.log("getVariable:"+variable);
         return variable.value;
     } catch (error) {
         console.error('Erreur lors de la récupération de la variable :', error);
