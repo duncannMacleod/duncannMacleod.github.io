@@ -99,7 +99,7 @@ Promise.all([
 
                     const messageElement = document.createElement('span');
                     messageElement.classList.add('message-text');
-                    messageElement.innerHTML = `: ${message.text}`;
+                    messageElement.innerHTML = `: ${highlightNumbers(message.text)}`;
 
                     textMessageElement.appendChild(typeElement);
                     textMessageElement.appendChild(messageElement);
@@ -202,4 +202,8 @@ function mapMessageType(type) {
         default:
             return "";
     }
+}
+
+function highlightNumbers(text) {
+    return text.replace(/\d+/g, (match) => `<span style="color: #E97132;">${match}</span>`);
 }
