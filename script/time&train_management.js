@@ -4,7 +4,7 @@ Promise.all([
     fetch('data/index/timestamp_index.json').then(response => response.json())
 ])
     .then(async ([gares, data]) => {
-        let currentIndex // Index de l'événement actuel
+        let currentIndex; // Index de l'événement actuel
         const totalEvents = data.length; // Nombre total d'événements
         // Sélectionner les éléments HTML où afficher les informations
         const textContainer = document.getElementById('textContainer');
@@ -122,8 +122,18 @@ Promise.all([
             console.log('Connecté au serveur WebSocket');
         });
 
+        async function fetchAndUpdateVariable() {
+            currentIndex = await getVariable();
+            updateDisplay();
+            updateTrainMarkers();
+        }
+
+        // Mettre à jour la variable toutes les 10 secondes
+        setInterval(fetchAndUpdateVariable, 10000);
+
+        // Initialisation
         currentIndex = await getVariable();
-        console.log(currentIndex)
+        console.log(currentIndex);
         updateDisplay();
         updateTrainMarkers();
 
@@ -132,7 +142,6 @@ Promise.all([
             if (currentIndex > 0) {
                 currentIndex--;
                 await updateVariable(currentIndex);
-                
             }
         });
 
@@ -140,7 +149,6 @@ Promise.all([
             if (currentIndex < totalEvents - 1) {
                 currentIndex++;
                 await updateVariable(currentIndex);
-                
             }
         });
 
@@ -173,9 +181,8 @@ async function updateVariable(newValue) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ value: newValue }),
-            
         });
-        console.log(getVariable());
+        console.log(await getVariable());
         if (!response.ok) console.error('Erreur lors de la mise à jour de la variable');
     } catch (error) {
         console.error('Erreur réseau :', error);
