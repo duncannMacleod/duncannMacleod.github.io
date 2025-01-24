@@ -99,7 +99,7 @@ Promise.all([
 
                     const messageElement = document.createElement('span');
                     messageElement.classList.add('message-text');
-                    messageElement.textContent = `: ${message.text}`;
+                    messageElement.innerHTML = `: ${message.text}`;
 
                     textMessageElement.appendChild(typeElement);
                     textMessageElement.appendChild(messageElement);
