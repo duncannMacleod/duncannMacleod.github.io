@@ -205,5 +205,5 @@ function mapMessageType(type) {
 }
 
 function highlightNumbers(text) {
-    return text.replace(/\d+/g, (match) => `<span style="color: #E97132;">${match}</span>`);
+    return text.replace(/\d+/g, (match) => `<span style="color: #0F9ED5;">${match}</span>`);
 }
