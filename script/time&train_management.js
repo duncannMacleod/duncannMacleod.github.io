@@ -122,7 +122,7 @@ Promise.all([
         }
 
         // Gestion des WebSockets
-        const socket = io('https://duncannmacleod-github-io-1.onrender.com');
+        const socket = io('https://duncannmacleod-github-io-3ye0.onrender.com');
         socket.on('variable_updated', (variable) => {
             currentIndex = variable.value;
             updateDisplay();
