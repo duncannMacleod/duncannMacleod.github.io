@@ -5,7 +5,7 @@
             5.406559,
             43.29614391
         ],
-        "display":"main"
+        "display":"local"
     },
     {
         "name": "MSC",
@@ -85,7 +85,7 @@
             6.482498,
             43.455524
         ],
-        "display":"main"
+        "display":"local"
     },
     {
         "name": "LES",
