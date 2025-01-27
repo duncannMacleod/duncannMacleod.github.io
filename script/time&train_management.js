@@ -30,7 +30,10 @@ Promise.all([
                     default:
                         color = 'rgba(255, 0, 0, 1)';
                 }
-
+            
+                const stationType = feature.get('station_type'); // Get station_type from the feature
+                const offsetY = stationType === 0 ? 0 : 15; // Set offsetY based on station_type
+            
                 return new ol.style.Style({
                     text: new ol.style.Text({
                         font: 'bold 8px Verdana',
@@ -41,10 +44,11 @@ Promise.all([
                         padding: [2, 2, 2, 2],
                         textAlign: 'center',
                         scale: 1.2,
-                        offsetY: 15,
+                        offsetY: offsetY, // Use calculated offsetY
                     })
                 });
             }
+            
         });
 
         // Ajouter la couche à la carte
@@ -59,11 +63,13 @@ Promise.all([
 
             Object.entries(currentTrains).forEach(([trainId, train]) => {
                 let trainCoords;
-
+                let station_type=0;
                 if (train.location_type === "at_station") {
                     const station = gares.find(g => g.name === train.location);
                     if (station) {
                         trainCoords = ol.proj.transform(station.coordinates, 'EPSG:4326', 'EPSG:3857');
+                        if (station.display!=null)
+                            station_type= 1;
                     }
                 } else if (train.location_type === "inter_station") {
                     trainCoords = train.location.split(',').map(Number);
@@ -74,10 +80,12 @@ Promise.all([
                     const trainMarker = new ol.Feature({
                         geometry: new ol.geom.Point(trainCoords),
                         name: `${trainId}`,
-                        state: train.state
+                        state: train.state,
+                        station_type: station_type
                     });
                     trainSource.addFeature(trainMarker);
                 }
+                
             });
         }
 

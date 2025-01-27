@@ -116,9 +116,9 @@ fetch('data/index/gares_index.json')
         // Séparer les gares principales et locales
         var mainStations = gares.filter(gare => gare.display === "main");        // Gares principales
         var localStations = gares.filter(gare => gare.display === "local"); // Gares locales
-
+        var superLocalStation = gares.filter(gare => gare.display == null);
         // Créer les marqueurs pour les gares principales
-        var mainGareMarkers = mainStations.map(gare => {
+        var mainStationMakers = mainStations.map(gare => {
             return new ol.Feature({
                 geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
                 name: gare.name
@@ -126,17 +126,24 @@ fetch('data/index/gares_index.json')
         });
 
         // Créer les marqueurs pour les gares locales
-        var localGareMarkers = localStations.map(gare => {
+        var localStationMakers = localStations.map(gare => {
             return new ol.Feature({
                 geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
                 name: gare.name
             });
         });
 
+        var superLocalStationMakers = superLocalStation.map(gare => {
+            return new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
+                name: gare.name
+            });
+        });
+        
         // Créer la couche pour les gares principales
         main_stations_layer = new ol.layer.Vector({
             source: new ol.source.Vector({
-                features: mainGareMarkers
+                features: mainStationMakers
             }),
             style: function (feature) {
                 return new ol.style.Style({
@@ -153,7 +160,23 @@ fetch('data/index/gares_index.json')
         // Créer la couche pour les gares locales
         local_stations_layer = new ol.layer.Vector({
             source: new ol.source.Vector({
-                features: localGareMarkers
+                features: localStationMakers
+            }),
+            style: function (feature) {
+                return new ol.style.Style({
+                    text: new ol.style.Text({
+                        font: '12px Verdana',
+                        fill: new ol.style.Fill({ color: 'green' }), // Couleur différente pour les gares locales
+                        stroke: new ol.style.Stroke({ color: 'white', width: 2 }),
+                        text: feature.get('name'), // Nom de la gare
+                    })
+                });
+            }
+        });
+
+        super_local_stations_layer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                features: superLocalStationMakers
             }),
             style: function (feature) {
                 return new ol.style.Style({
@@ -168,6 +191,7 @@ fetch('data/index/gares_index.json')
         });
 
         // Ajouter les couches à la carte
+        map.addLayer(super_local_stations_layer);
         map.addLayer(local_stations_layer);
         map.addLayer(main_stations_layer);
     });
@@ -179,6 +203,10 @@ document.getElementById('gpxLayer').addEventListener('change', function () {
 
 document.getElementById('main_stations').addEventListener('change', function () {
     main_stations_layer.setVisible(this.checked);
+});
+
+document.getElementById('super_local_stations').addEventListener('change', function () {
+    super_local_stations_layer.setVisible(this.checked);
 });
 
 document.getElementById('all_stations').addEventListener('change', function () {
