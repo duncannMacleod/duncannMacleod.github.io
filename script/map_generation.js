@@ -192,6 +192,7 @@ fetch('data/index/gares_index.json')
 
         // Ajouter les couches à la carte
         map.addLayer(super_local_stations_layer);
+        super_local_stations_layer.setVisible(false);
         map.addLayer(local_stations_layer);
         map.addLayer(main_stations_layer);
     });
