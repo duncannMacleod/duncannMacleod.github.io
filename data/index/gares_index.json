@@ -156,8 +156,7 @@
         "coordinates": [
             5.390412,
             43.3392414
-        ],
-        "display":"local"
+        ]
     },
     {
         "name": "CSI",
@@ -172,21 +171,41 @@
         "coordinates": [
             5.876966,
             43.116959
-        ],
-        "display":"local"
+        ]
     },
     {
         "name":"TSM",
         "coordinates":[
             5.972433,
             43.125008
-        ]
+        ]   
     },
     {
         "name":"MVG",
         "coordinates":[
             4.9082052,
             43.9414696
+        ]
+    },
+    {
+        "name":"CVN",
+        "coordinates":[
+            5.043613,
+            43.834554
+        ]
+    },
+    {
+        "name":"GDN",
+        "coordinates":[
+            5.463332,
+            43.455992
+        ]
+    },
+    {
+        "name":"LTV",
+        "coordinates":[
+            5.632647,
+            43.199593
         ]
     }
 ]

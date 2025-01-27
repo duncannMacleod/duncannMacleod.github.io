@@ -81,6 +81,9 @@ body, html {
 .FAX {
     color: rgb(255, 102, 0); 
 }
+.Régulation{
+    color: red;
+}
 .texte_vert {
     color: green; /* text4 sera en vert */
 }

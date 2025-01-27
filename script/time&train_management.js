@@ -11,7 +11,7 @@ Promise.all([
         const currentEventElement = document.getElementById('current_event');
         const textMessageElement = document.getElementById('textMessage');
         // Initialisation des sources et couches OpenLayers
-        
+
         const trainSource = new ol.source.Vector();
         const trainLayer = new ol.layer.Vector({
             source: trainSource,
@@ -22,6 +22,9 @@ Promise.all([
                         color = 'rgba(0, 255, 0, 1)';
                         break;
                     case 'yellow':
+                        color = 'rgba(255, 165, 0, 1)';
+                        break;
+                    case 'orange':
                         color = 'rgba(255, 165, 0, 1)';
                         break;
                     default:
@@ -198,12 +201,12 @@ function mapMessageType(type) {
         case "orange":
             return "FAX";
         case "red":
-            return "texte_rouge";
+            return "Régulation";
         default:
             return "";
     }
 }
 
 function highlightNumbers(text) {
-    return text.replace(/\d+/g, (match) => `<span style="color: #0F9ED5;">${match}</span>`);
+    return text.replace(/\d+/g, (match) => `<span style="color:rgb(43, 145, 53);">${match}</span>`);
 }
