@@ -216,5 +216,12 @@ function mapMessageType(type) {
 }
 
 function highlightNumbers(text) {
-    return text.replace(/\d+/g, (match) => `<span style="color:rgb(43, 145, 53);">${match}</span>`);
+    return text.replace(/\d+/g, (match) => {
+        // Convertir le match en nombre et vérifier s'il est supérieur à 100
+        if (parseInt(match) > 100) {
+            return `<span style="color:rgb(43, 145, 53);">${match}</span>`;
+        }
+        // Retourner le nombre sans modification s'il est inférieur ou égal à 100
+        return match;
+    });
 }
