@@ -13,14 +13,11 @@
     <div class="container">
         <div class="left-column" id="map"></div>
         <div class="right-column">
-            <h1>
-                <CENTER>
-                    <div id="textContainer"></div>
-                </CENTER>
-            </h1><br>
+            <br>
+            <div id="textContainer"></div>
             <button id="prev_button"><</button>
             <div id="current_event"></div>
-            <button id="next_button">></button><br><br>
+            <button id="next_button">></button><br>
             <div id="textMessage"></div>
         </div>
     </div>
@@ -28,13 +25,13 @@
         <a href="#" id="superviseur_link">Mode Superviseur</a>
     </div>
     <div class="layer-control">
-        <label><span style="color: red">▬</span> 25kV monophasé</label><br>
-        <label><span style="color: blue">▬</span> 1,5kV continu</label><br>
-        <label><span style="color: black">▬</span> non électrifié</label><br>
-        <label><input type="checkbox" id="gpxLayer" checked>Lignes SNCF</label><br>
-        <label><input type="checkbox" id="main_stations" checked>Gares Importantes</label><br>
+        <!-- <label><span style="color: red">▬</span> 25kV monophasé</label><br>
+        <label><span style="color: green">▬</span> 1,5kV continu</label><br>
+        <label><span style="color: black">▬</span> non électrifié</label><br> -->
+        <!-- <label><input type="checkbox" id="gpxLayer" checked>Lignes SNCF</label><br> -->
+        <label><input type="checkbox" id="main_stations" checked>Gares Principales</label><br>
         <label><input type="checkbox" id="super_local_stations" >Gares super secrètes</label><br>
-        <label><input type="checkbox" id="all_stations" checked>Toutes les Gares</label><br>
+        <!-- <label><input type="checkbox" id="all_stations" checked>Toutes les Gares</label><br> -->
         <label for="opacityRange" style="display: inline-block; margin-right: 10px;">Opacité trains:</label>
         <input type="range" id="opacityRange" min="0" max="100" value="100" style="width: 80px; vertical-align: middle;">
     </div>

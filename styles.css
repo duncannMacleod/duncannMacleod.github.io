@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    font-family: 'Georgia';
+    font-family: 'Arial';
 }
 
 .container {
@@ -97,4 +97,17 @@ body, html {
     white-space: normal; /* Permet au texte de s'enrouler */
     margin: 10px 0; /* Ajoute un espacement */
     line-height: 1.5; /* Améliore la lisibilité */
+}
+
+@font-face {
+    font-family: 'SevenSegment';
+    src: url('fonts/seven_segment.ttf') format('truetype');
+}
+
+#textContainer {
+    font-family: 'SevenSegment', sans-serif;
+    font-size: 60px; /* Ajuste la taille du texte selon tes besoins */
+    color: red;
+    font-weight: lighter;
+    margin-left: 65px;
 }

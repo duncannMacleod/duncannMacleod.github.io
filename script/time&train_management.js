@@ -53,29 +53,33 @@ Promise.all([
 
         // Ajouter la couche à la carte
         map.addLayer(trainLayer);
-        local_stations_layer.setZIndex(4);
+        //local_stations_layer.setZIndex(4);
         main_stations_layer.setZIndex(4);
-
+        super_local_stations_layer.setZIndex(4);
         // Fonction pour mettre à jour les marqueurs de train
         function updateTrainMarkers() {
-            const currentTrains = data[currentIndex].trains;
+            const currentEvent = data[currentIndex];
+        
+            if (!currentEvent || !currentEvent.trains) return; // Vérification et sortie immédiate
+        
+            const currentTrains = currentEvent.trains;
             trainSource.clear();
-
+        
             Object.entries(currentTrains).forEach(([trainId, train]) => {
                 let trainCoords;
-                let station_type=0;
+                let station_type = 0;
+        
                 if (train.location_type === "at_station") {
                     const station = gares.find(g => g.name === train.location);
                     if (station) {
                         trainCoords = ol.proj.transform(station.coordinates, 'EPSG:4326', 'EPSG:3857');
-                        if (station.display!=null)
-                            station_type= 1;
+                        if (station.display != null) station_type = 1;
                     }
                 } else if (train.location_type === "inter_station") {
                     trainCoords = train.location.split(',').map(Number);
                     trainCoords = ol.proj.transform(trainCoords, 'EPSG:4326', 'EPSG:3857');
                 }
-
+        
                 if (trainCoords) {
                     const trainMarker = new ol.Feature({
                         geometry: new ol.geom.Point(trainCoords),
@@ -85,33 +89,34 @@ Promise.all([
                     });
                     trainSource.addFeature(trainMarker);
                 }
-                
             });
         }
+        
 
         // Fonction pour mettre à jour l'affichage des messages et de l'heure
         function updateDisplay() {
             const currentEvent = data[currentIndex];
             if (!currentEvent) return;
-
+        
             const time_h = currentEvent.time_h;
             const time_m = currentEvent.time_m;
-            textContainer.textContent = `Heure : ${time_h}h${time_m}`;
+            textContainer.textContent = `${time_h}:${time_m}`;
             currentEventElement.textContent = `Événement ${currentIndex + 1} sur ${totalEvents}`;
-
+        
             textMessageElement.innerHTML = '';
             const messages = currentEvent.messages || [];
             if (messages.length > 0) {
                 messages.forEach(message => {
-                    const messageType = mapMessageType(message.type);
+                    const messageType = message.type ? mapMessageType(message.type) : 'Message';
+        
                     const typeElement = document.createElement('span');
                     typeElement.classList.add(messageType);
                     typeElement.textContent = `${messageType}`;
-
+        
                     const messageElement = document.createElement('span');
                     messageElement.classList.add('message-text');
                     messageElement.innerHTML = `: ${highlightNumbers(message.text)}`;
-
+        
                     textMessageElement.appendChild(typeElement);
                     textMessageElement.appendChild(messageElement);
                     textMessageElement.appendChild(document.createElement('br'));
@@ -120,6 +125,7 @@ Promise.all([
                 textMessageElement.textContent = 'Aucun message pour cet événement.';
             }
         }
+        
 
         // Gestion des WebSockets
         const socket = io('https://duncannmacleod-github-io-3ye0.onrender.com');
@@ -149,13 +155,30 @@ Promise.all([
         updateTrainMarkers();
 
         // Gestion des boutons
+        document.addEventListener("keydown", async function () {
+            if (event.key === "ArrowDown"){
+                if (currentIndex < totalEvents - 1) {
+                    currentIndex++;
+                    await updateVariable(currentIndex);
+                }
+            }
+            
+        });
+        document.addEventListener("keydown", async function () {
+            if (event.key === "ArrowUp"){
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    await updateVariable(currentIndex);
+                }
+            }
+            
+        });
         document.getElementById("prev_button").addEventListener("click", async function () {
             if (currentIndex > 0) {
                 currentIndex--;
                 await updateVariable(currentIndex);
             }
         });
-
         document.getElementById("next_button").addEventListener("click", async function () {
             if (currentIndex < totalEvents - 1) {
                 currentIndex++;
@@ -218,7 +241,7 @@ function mapMessageType(type) {
 function highlightNumbers(text) {
     return text.replace(/\d+/g, (match) => {
         // Convertir le match en nombre et vérifier s'il est supérieur à 100
-        if (parseInt(match) > 100) {
+        if (parseInt(match) > 9999) {
             return `<span style="color:rgb(43, 145, 53);">${match}</span>`;
         }
         // Retourner le nombre sans modification s'il est inférieur ou égal à 100

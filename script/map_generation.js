@@ -1,5 +1,5 @@
-var centerCoordinates = ol.proj.fromLonLat([5.4547, 43.6758]); // Latitude et longitude de la région PACA
-let gpxLayer,local_stations_layer,main_stations_layer;
+var centerCoordinates = ol.proj.fromLonLat([5.56658, 43.296045]); // Latitude et longitude de la région PACA
+let gpxLayer, local_stations_layer, main_stations_layer;
 // Créer une carte OpenLayers
 var map = new ol.Map({
     target: 'map',
@@ -12,9 +12,14 @@ var map = new ol.Map({
     ],
     view: new ol.View({
         center: centerCoordinates,
-        zoom: 9 // Zoom par défaut
+        zoomFactor: 1.5,
+        zoom: 17.5,   // Zoom par défaut
+        minZoom: 17.5, // Zoom minimum
+
+        constrainResolution: true // Force le zoom à respecter les niveaux prédéfinis
     })
 })
+
 
 fetch('data/index/gpx_railway_index.json')
     .then(response => response.json())
@@ -52,7 +57,15 @@ fetch('data/index/gpx_railway_index.json')
                 // Extraire l'information sur l'électrification de la ligne
                 var electrifiedInfo = desc.match(/electrified=(\w+)/);
                 var voltageInfo = desc.match(/voltage=(\w+)/);
+                var passengerLinesInfo = desc.match(/passenger_lines=(\d+)/);
 
+                var lineWidth = 1; // Par défaut, largeur de ligne normale
+                if (passengerLinesInfo !== null) {
+                    var passengerLines = parseInt(passengerLinesInfo[1], 10);
+                    if (passengerLines >= 2) {
+                        lineWidth=2.5; // Augmenter la largeur si passenger_lines >= 2
+                    }
+                }
                 // Vérifier si l'attribut "electrified" existe
                 if (electrifiedInfo !== null) {
                     var electrified = electrifiedInfo[1];
@@ -63,7 +76,7 @@ fetch('data/index/gpx_railway_index.json')
                         return new ol.style.Style({
                             stroke: new ol.style.Stroke({
                                 color: 'black', // Ligne noire pour les non électrifiées
-                                width: 2
+                                width: lineWidth
                             })
                         });
                     } else {
@@ -73,15 +86,15 @@ fetch('data/index/gpx_railway_index.json')
                             if (voltage === '1500') {
                                 return new ol.style.Style({
                                     stroke: new ol.style.Stroke({
-                                        color: 'blue', // Ligne bleue pour les électrifiées à 1500V
-                                        width: 2
+                                        color: 'green', // Ligne bleue pour les électrifiées à 1500V
+                                        width: lineWidth
                                     })
                                 });
                             } else {
                                 return new ol.style.Style({
                                     stroke: new ol.style.Stroke({
                                         color: 'red', // Ligne rouge pour les autres tensions
-                                        width: 2
+                                        width: lineWidth
                                     })
                                 });
                             }
@@ -92,7 +105,7 @@ fetch('data/index/gpx_railway_index.json')
                     return new ol.style.Style({
                         stroke: new ol.style.Stroke({
                             color: 'black', // Ligne noire pour les non électrifiées
-                            width: 2
+                            width: lineWidth
                         })
                     });
                 }
@@ -115,8 +128,8 @@ fetch('data/index/gares_index.json')
     .then(gares => {
         // Séparer les gares principales et locales
         var mainStations = gares.filter(gare => gare.display === "main");        // Gares principales
-        var localStations = gares.filter(gare => gare.display === "local"); // Gares locales
-        var superLocalStation = gares.filter(gare => gare.display == null);
+        //var localStations = gares.filter(gare => gare.display === "local"); // Gares locales
+        var superLocalStation = gares.filter(gare => gare.display == null || gare.display === "local");
         // Créer les marqueurs pour les gares principales
         var mainStationMakers = mainStations.map(gare => {
             return new ol.Feature({
@@ -126,12 +139,12 @@ fetch('data/index/gares_index.json')
         });
 
         // Créer les marqueurs pour les gares locales
-        var localStationMakers = localStations.map(gare => {
-            return new ol.Feature({
-                geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
-                name: gare.name
-            });
-        });
+        // var localStationMakers = localStations.map(gare => {
+        //     return new ol.Feature({
+        //         geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
+        //         name: gare.name
+        //     });
+        // });
 
         var superLocalStationMakers = superLocalStation.map(gare => {
             return new ol.Feature({
@@ -139,7 +152,7 @@ fetch('data/index/gares_index.json')
                 name: gare.name
             });
         });
-        
+
         // Créer la couche pour les gares principales
         main_stations_layer = new ol.layer.Vector({
             source: new ol.source.Vector({
@@ -158,21 +171,22 @@ fetch('data/index/gares_index.json')
         });
 
         // Créer la couche pour les gares locales
-        local_stations_layer = new ol.layer.Vector({
-            source: new ol.source.Vector({
-                features: localStationMakers
-            }),
-            style: function (feature) {
-                return new ol.style.Style({
-                    text: new ol.style.Text({
-                        font: '12px Verdana',
-                        fill: new ol.style.Fill({ color: 'green' }), // Couleur différente pour les gares locales
-                        stroke: new ol.style.Stroke({ color: 'white', width: 2 }),
-                        text: feature.get('name'), // Nom de la gare
-                    })
-                });
-            }
-        });
+
+        // local_stations_layer = new ol.layer.Vector({
+        //     source: new ol.source.Vector({
+        //         features: localStationMakers
+        //     }),
+        //     style: function (feature) {
+        //         return new ol.style.Style({
+        //             text: new ol.style.Text({
+        //                 font: '12px Verdana',
+        //                 fill: new ol.style.Fill({ color: 'green' }), // Couleur différente pour les gares locales
+        //                 stroke: new ol.style.Stroke({ color: 'white', width: 2 }),
+        //                 text: feature.get('name'), // Nom de la gare
+        //             })
+        //         });
+        //     }
+        // });
 
         super_local_stations_layer = new ol.layer.Vector({
             source: new ol.source.Vector({
@@ -193,14 +207,15 @@ fetch('data/index/gares_index.json')
         // Ajouter les couches à la carte
         map.addLayer(super_local_stations_layer);
         super_local_stations_layer.setVisible(false);
-        map.addLayer(local_stations_layer);
+        //map.addLayer(local_stations_layer);
         map.addLayer(main_stations_layer);
     });
 
 // Gestion des checkboxes pour afficher/masquer les couches
-document.getElementById('gpxLayer').addEventListener('change', function () {
-    gpxLayer.setVisible(this.checked);
-});
+
+// document.getElementById('gpxLayer').addEventListener('change', function () {
+//     gpxLayer.setVisible(this.checked);
+// });
 
 document.getElementById('main_stations').addEventListener('change', function () {
     main_stations_layer.setVisible(this.checked);
@@ -210,14 +225,14 @@ document.getElementById('super_local_stations').addEventListener('change', funct
     super_local_stations_layer.setVisible(this.checked);
 });
 
-document.getElementById('all_stations').addEventListener('change', function () {
-    local_stations_layer.setVisible(this.checked);
-    main_stations_layer.setVisible(this.checked);
-    if(main_stations_layer.values_.visible){
-        document.getElementById('main_stations').checked=true;
-    }
-    else{
-        document.getElementById('main_stations').checked=false;
-    }
-});
+// document.getElementById('all_stations').addEventListener('change', function () {
+//     local_stations_layer.setVisible(this.checked);
+//     main_stations_layer.setVisible(this.checked);
+//     if (main_stations_layer.values_.visible) {
+//         document.getElementById('main_stations').checked = true;
+//     }
+//     else {
+//         document.getElementById('main_stations').checked = false;
+//     }
+// });
 

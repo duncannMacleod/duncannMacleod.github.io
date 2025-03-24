@@ -1,5 +1,13 @@
 [
   {
+    "time_h": "11",
+    "time_m": "59",
+    "messages": [
+      {
+        "text": "Bienvenue sur l'outil d'aide à la circulation des TER PACA"
+      }
+    ]
+  },{
     "time_h": "12",
     "time_m": "00",
     "trains": {
