@@ -106,7 +106,6 @@ body, html {
 
 #textContainer {
     font-family: 'SevenSegment', sans-serif;
-    font-size: 60px; /* Ajuste la taille du texte selon tes besoins */
     color: red;
     font-weight: lighter;
     margin-left: 65px;
