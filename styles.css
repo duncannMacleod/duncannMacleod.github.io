@@ -107,6 +107,7 @@ body, html {
 #textContainer {
     font-family: 'SevenSegment', sans-serif;
     color: red;
+    font-size: 60px;
     font-weight: lighter;
-    margin-left: 65px;
+    
 }
