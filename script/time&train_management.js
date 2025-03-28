@@ -34,9 +34,8 @@ Promise.all([
                         color = 'rgba(255, 0, 0, 1)';
                 }
 
-                const stationType = feature.get('station_type'); // Get station_type from the feature
-                const offsetY = stationType === 0 ? 0 : 15; // Set offsetY based on station_type
-
+                const offset = feature.get('offset'); // Get station_type from the feature
+                
                 return new ol.style.Style({
                     text: new ol.style.Text({
                         font: 'bold 8px Verdana',
@@ -44,21 +43,34 @@ Promise.all([
                         fill: new ol.style.Fill({ color: 'black' }),
                         backgroundFill: new ol.style.Fill({ color }),
                         backgroundStroke: new ol.style.Stroke({ color: 'black', width: 1 }),
-                        padding: [2, 2, 2, 2],
+                        padding: [1, 1, 1, 1],
                         textAlign: 'center',
                         scale: 1.2,
-                        offsetY: offsetY, // Use calculated offsetY
+                        offsetY: offset, // Use calculated offsetY
                     })
                 });
+                // return new ol.style.Style({
+                //     text: new ol.style.Text({
+                //         font: 'bold 9px Arial', // Augmenter la taille de la police pour la lisibilité
+                //         text: feature.get('name'),
+                //         fill: new ol.style.Fill({ color: color }), // Applique la couleur dynamique
+                //         stroke: new ol.style.Stroke({ color: 'black', width: 2 }), // Ajouter un contour blanc pour rendre le texte plus lisible
+                //         textAlign: 'center', // Centrer le texte horizontalement
+                //         textBaseline: 'middle', // Centrer le texte verticalement
+                //         scale: 1.5, // Augmenter l'échelle pour que le texte soit plus grand et plus visible
+                //         offsetY: offsetY, // Appliquer le décalage vertical calculé
+                //     })
+                // });
+                
             }
 
         });
 
         // Ajouter la couche à la carte
         map.addLayer(trainLayer);
-        //local_stations_layer.setZIndex(4);
-        main_stations_layer.setZIndex(4);
-        super_local_stations_layer.setZIndex(4);
+        trainLayer.setZIndex(600)
+        main_stations_layer.setZIndex(200);
+        super_local_stations_layer.setZIndex(200);
         // Fonction pour mettre à jour les marqueurs de train
         function updateTrainMarkers() {
             const currentEvent = data[currentIndex];
@@ -67,16 +79,27 @@ Promise.all([
 
             const currentTrains = currentEvent.trains;
             trainSource.clear();
-
+            let trainsInStation = {};
             Object.entries(currentTrains).forEach(([trainId, train]) => {
                 let trainCoords;
-                let station_type = 0;
+                let offset = 0;
 
                 if (train.location_type === "at_station") {
                     const station = gares.find(g => g.name === train.location);
                     if (station) {
                         trainCoords = ol.proj.transform(station.coordinates, 'EPSG:4326', 'EPSG:3857');
-                        if (station.display != null) station_type = 1;
+        
+                        if (station.display === "main") {
+                            offset = 15;
+                        }
+        
+                        // Initialiser si nécessaire
+                        if (!trainsInStation[train.location]) {
+                            trainsInStation[train.location] = 1;
+                        } else {
+                            offset = offset + trainsInStation[train.location]*15;
+                            trainsInStation[train.location]++;
+                        }
                     }
                 } else if (train.location_type === "inter_station") {
                     trainCoords = train.location.split(',').map(Number);
@@ -88,7 +111,7 @@ Promise.all([
                         geometry: new ol.geom.Point(trainCoords),
                         name: `${trainId}`,
                         state: train.state,
-                        station_type: station_type
+                        offset: offset
                     });
                     trainSource.addFeature(trainMarker);
                 }
@@ -159,16 +182,15 @@ Promise.all([
 
         // Gestion des boutons
         document.addEventListener("keydown", async function () {
+            if (!isSupervisor) return;
+
             if (event.key === "ArrowDown") {
                 if (currentIndex < totalEvents - 1) {
                     currentIndex++;
                     await updateVariable(currentIndex);
                 }
             }
-
-        });
-        document.addEventListener("keydown", async function () {
-            if (event.key === "ArrowUp") {
+            else if (event.key === "ArrowUp") {
                 if (currentIndex > 0) {
                     currentIndex--;
                     await updateVariable(currentIndex);
@@ -176,6 +198,7 @@ Promise.all([
             }
 
         });
+
         document.getElementById("prev_button").addEventListener("click", async function () {
             if (currentIndex > 0) {
                 currentIndex--;

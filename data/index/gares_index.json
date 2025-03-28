@@ -2,8 +2,8 @@
     {
         "name": "MBC",
         "coordinates": [
-            5.406559,
-            43.29614391
+            5.4069324,
+            43.2966255
         ],
         "display":"local"
     },
@@ -53,7 +53,7 @@
             4.63203,
             43.684853
         ],
-        "display":"local"
+        "display":"main"
     },
     {
         "name": "MAS",
@@ -77,7 +77,7 @@
             6.124223,
             43.108867
         ],
-        "display":"local"
+        "display":"main"
     },
     {
         "name": "LAC",
@@ -85,7 +85,7 @@
             6.482498,
             43.455524
         ],
-        "display":"local"
+        "display":"main"
     },
     {
         "name": "LES",
@@ -355,7 +355,34 @@
             4.84119,
             43.93483
         ]
+    },
+    {
+        "name":"MEK",
+        "coordinates":[
+            5.5037023,
+            43.6845547
+        ]
+    },
+    {
+        "name":"SHY",
+        "coordinates":[
+            5.0402963,
+            43.5511577
+        ]
+    },
+    {
+        "name":"LUY",
+        "coordinates":[
+            5.424736,
+            43.482594
+        ]
+    },
+    {
+        "name":"SMD",
+        "coordinates":[
+            4.800499,
+            43.622161
+        ]
     }
-    
     
 ]

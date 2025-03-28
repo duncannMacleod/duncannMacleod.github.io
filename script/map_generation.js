@@ -1,4 +1,4 @@
-var centerCoordinates = ol.proj.fromLonLat([5.56658, 43.296045]); // Latitude et longitude de la région PACA
+var centerCoordinates = ol.proj.fromLonLat([5.48201, 43.54]); // Latitude et longitude de la région PACA
 let gpxLayer, local_stations_layer, main_stations_layer;
 // Créer une carte OpenLayers
 var map = new ol.Map({
@@ -13,8 +13,8 @@ var map = new ol.Map({
     view: new ol.View({
         center: centerCoordinates,
         zoomFactor: 1.5,
-        zoom: 17.5,   // Zoom par défaut
-        minZoom: 17.5, // Zoom minimum
+        zoom: 16.5,   // Zoom par défaut
+        minZoom: 16.5, // Zoom minimum
 
         constrainResolution: true // Force le zoom à respecter les niveaux prédéfinis
     })
@@ -138,14 +138,6 @@ fetch('data/index/gares_index.json')
             });
         });
 
-        // Créer les marqueurs pour les gares locales
-        // var localStationMakers = localStations.map(gare => {
-        //     return new ol.Feature({
-        //         geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
-        //         name: gare.name
-        //     });
-        // });
-
         var superLocalStationMakers = superLocalStation.map(gare => {
             return new ol.Feature({
                 geometry: new ol.geom.Point(ol.proj.transform(gare.coordinates, 'EPSG:4326', 'EPSG:3857')),
@@ -170,23 +162,6 @@ fetch('data/index/gares_index.json')
             }
         });
 
-        // Créer la couche pour les gares locales
-
-        // local_stations_layer = new ol.layer.Vector({
-        //     source: new ol.source.Vector({
-        //         features: localStationMakers
-        //     }),
-        //     style: function (feature) {
-        //         return new ol.style.Style({
-        //             text: new ol.style.Text({
-        //                 font: '12px Verdana',
-        //                 fill: new ol.style.Fill({ color: 'green' }), // Couleur différente pour les gares locales
-        //                 stroke: new ol.style.Stroke({ color: 'white', width: 2 }),
-        //                 text: feature.get('name'), // Nom de la gare
-        //             })
-        //         });
-        //     }
-        // });
 
         super_local_stations_layer = new ol.layer.Vector({
             source: new ol.source.Vector({
@@ -207,15 +182,9 @@ fetch('data/index/gares_index.json')
         // Ajouter les couches à la carte
         map.addLayer(super_local_stations_layer);
         super_local_stations_layer.setVisible(false);
-        //map.addLayer(local_stations_layer);
         map.addLayer(main_stations_layer);
     });
 
-// Gestion des checkboxes pour afficher/masquer les couches
-
-// document.getElementById('gpxLayer').addEventListener('change', function () {
-//     gpxLayer.setVisible(this.checked);
-// });
 
 document.getElementById('main_stations').addEventListener('change', function () {
     main_stations_layer.setVisible(this.checked);
@@ -224,15 +193,3 @@ document.getElementById('main_stations').addEventListener('change', function () 
 document.getElementById('super_local_stations').addEventListener('change', function () {
     super_local_stations_layer.setVisible(this.checked);
 });
-
-// document.getElementById('all_stations').addEventListener('change', function () {
-//     local_stations_layer.setVisible(this.checked);
-//     main_stations_layer.setVisible(this.checked);
-//     if (main_stations_layer.values_.visible) {
-//         document.getElementById('main_stations').checked = true;
-//     }
-//     else {
-//         document.getElementById('main_stations').checked = false;
-//     }
-// });
-

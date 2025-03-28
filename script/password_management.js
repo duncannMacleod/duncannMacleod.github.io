@@ -1,6 +1,9 @@
+let isSupervisor = false;
+
 document.getElementById("superviseur_link").addEventListener("click", function() {
     const password = prompt("Entrez le mot de passe pour accéder au mode superviseur:");
-    if (password === "brioche") {
+    if (password && password.toLowerCase() === "brioche") {
+        isSupervisor = true; 
         document.getElementById("prev_button").style.visibility = "visible";  // Rendre visibles
         document.getElementById("current_event").style.visibility = "visible";
         document.getElementById("next_button").style.visibility = "visible";
