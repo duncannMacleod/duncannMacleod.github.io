@@ -13,8 +13,8 @@ var map = new ol.Map({
     view: new ol.View({
         center: centerCoordinates,
         zoomFactor: 1.5,
-        zoom: 16.5,   // Zoom par défaut
-        minZoom: 16.5, // Zoom minimum
+        zoom: 17,   // Zoom par défaut
+        minZoom: 17, // Zoom minimum
 
         constrainResolution: true // Force le zoom à respecter les niveaux prédéfinis
     })

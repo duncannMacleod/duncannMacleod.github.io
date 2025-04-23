@@ -44,10 +44,7 @@
       }
     },
     "messages": [
-      {
-        "type": "orange",
-        "text": "Réception d’une Fiche Événement Matériel \n27/04/2018 - 880130 - AXP"
-      }
+      
     ]
   },
   {
@@ -60,55 +57,63 @@
         "state": "in_time"
       },
       "879645": {
-        "location_type": "inter_station",
-        "location": "4.7959,43.9172",
+        "location_type": "at_station",
+        "location": "AVI",
         "state": "in_time"
       },
       "879593": {
-        "location_type": "inter_station",
-        "location": "4.7911,43.9081",
+        "location_type": "at_station",
+        "location": "AVI",
         "state": "in_time"
       },
       "879210": {
-        "location_type": "inter_station",
-        "location": "4.7911,43.9081",
-        "state": "in_time"
-      },
-      "880130": {
         "location_type": "at_station",
         "location": "AVI",
-        "state": "yellow"
+        "state": "in_time"
+      },
+      "889612": {
+        "location_type": "at_station",
+        "location": "LES",
+        "state": "in_time"
+      },
+      "880132": {
+        "location_type": "at_station",
+        "location": "SEP",
+        "state": "in_time"
+      },
+      "880137": {
+        "location_type": "at_station",
+        "location": "AXP",
+        "state": "in_time"
       },
       "880612": {
         "location_type": "at_station",
-        "location": "SNT",
+        "location": "SI",
         "state": "in_time"
       },
       "881433": {
         "location_type": "at_station",
-        "location": "CSI",
+        "location": "SAQ",
+        "state": "in_time"
+      },
+      "881437": {
+        "location_type": "at_station",
+        "location": "MBC",
         "state": "in_time"
       },
       "881440": {
         "location_type": "at_station",
-        "location": "LSM",
+        "location": "BND",
         "state": "in_time"
       },
-      "881429": {
+      "881615": {
         "location_type": "at_station",
         "location": "TLN",
         "state": "in_time"
       }
     },
     "messages": [
-      {
-        "type": "yellow",
-        "text": "COPTER RHÔNE-ALPES : Je te confirme la prolongation de la demande d’assistance, vue avec ton collègue de matinée. Peux-tu effectuer ce soir avec ton matériel 886194 et 886175 demain ? "
-      },
-      {
-        "type": "yellow",
-        "text": "Escale d’AIX EN PROVENCE : Es-tu au courant pour le 880130 ? Je peux le renvoyer en 880139 ou veux-tu croiser les matériels ?"
-      }
+     
     ]
   },
   {
@@ -145,12 +150,12 @@
         "location": "VYM",
         "state": "in_time"
       },
-      "880632": {
+      "880132": {
         "location_type": "at_station",
         "location": "SI",
         "state": "in_time"
       },
-      "880637": {
+      "880137": {
         "location_type": "at_station",
         "location": "SEP",
         "state": "in_time"
@@ -223,16 +228,7 @@
         "state": "in_time"
       }
     },
-    "messages": [
-      {
-        "type": "red",
-        "text": "Le 881440 est arrêté en gare d’AUBAGNE. \nIl applique le guide de dépannage."
-      },
-      {
-        "type": "orange",
-        "text": "Réception d’une Fiche Événement Matériel\n27/04/2018 - 881440 - AUBAGNE"
-      }
-    ]
+    "messages": []
   },
   {
     "time_h": "13",
@@ -294,12 +290,7 @@
         "state": "in_time"
       }
     },
-    "messages": [
-      {
-        "type": "yellow",
-        "text": "TECHNICENTRE BLANCARDE : \nEt si on faisait un petit point matériel sur les prévisions de sorties en Z23500 de ce soir ?<br>Prévisions de sortie : <br>  RA de la Z23524 : 15h <br> OPM de la Z23501 : 16h, <br> ES+ECF de la Z23511 : 16h, <br> RA de la Z 23529 : repoussée à 19h, <br> EMN+2 de la Z23532 : repoussée à 17h.<br>J’ai une urgence, je te rappelle pour les B81500 ! <br>A+"
-      }
-    ]
+    "messages": []
   },
   {
     "time_h": "13",
@@ -366,16 +357,7 @@
         "state": "in_time"
       }
     },
-    "messages": [
-      {
-        "type": "red",
-        "text": "Le 881440 est arrêté en gare d’AUBAGNE. \nIl applique le guide de dépannage."
-      },
-      {
-        "type": "orange",
-        "text": "Réception d’une Fiche Événement Matériel\n27/04/2018 - 881440 - AUBAGNE"
-      }
-    ]
+    "messages": []
   },
   {
     "time_h": "13",
@@ -409,6 +391,16 @@
       "880145": {
         "location_type": "at_station",
         "location": "SEP",
+        "state": "in_time"
+      },
+      "880617": {
+        "location_type": "at_station",
+        "location": "AXP",
+        "state": "in_time"
+      },
+      "880636": {
+        "location_type": "at_station",
+        "location": "GDN",
         "state": "in_time"
       },
       "880138": {
@@ -528,6 +520,11 @@
       "880138": {
         "location_type": "at_station",
         "location": "GDN",
+        "state": "in_time"
+      },
+      "880149": {
+        "location_type": "at_station",
+        "location": "AXP",
         "state": "in_time"
       },
       "880617": {
@@ -933,7 +930,7 @@
         "location": "AVI",
         "state": "in_time"
       },
-      "879469": {
+      "879649": {
         "location_type": "at_station",
         "location": "MVG",
         "state": "in_time"
@@ -992,6 +989,11 @@
         "location_type": "at_station",
         "location": "CSI",
         "state": "in_time"
+      },
+      "881460": {
+        "location_type": "at_station",
+        "location": "TLN",
+        "state": "in_time"
       }
     },
     "messages": []
@@ -1010,7 +1012,7 @@
         "location": "SCP",
         "state": "in_time"
       },
-      "879469": {
+      "879649": {
         "location_type": "at_station",
         "location": "CVN",
         "state": "in_time"
@@ -1092,7 +1094,7 @@
     "time_h": "16",
     "time_m": "45",
     "trains": {
-      "879469": {
+      "879649": {
         "location_type": "at_station",
         "location": "CVN",
         "state": "in_time"
@@ -1137,7 +1139,7 @@
         "location": "MSC",
         "state": "in_time"
       },
-      "880624": {
+      "879624": {
         "location_type": "at_station",
         "location": "MSC",
         "state": "in_time"
@@ -1311,7 +1313,7 @@
         "location": "GDN",
         "state": "in_time"
       },
-      "880261": {
+      "880281": {
         "location_type": "at_station",
         "location": "SNT",
         "state": "in_time"

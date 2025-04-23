@@ -74,11 +74,12 @@ Promise.all([
         // Fonction pour mettre à jour les marqueurs de train
         function updateTrainMarkers() {
             const currentEvent = data[currentIndex];
-
-            if (!currentEvent || !currentEvent.trains) return; // Vérification et sortie immédiate
-
+            trainSource.clear();   
+            if (!currentEvent || !currentEvent.trains || Object.keys(currentEvent.trains).length === 0) {
+                return; // Rien à faire si pas de trains
+            }
             const currentTrains = currentEvent.trains;
-            trainSource.clear();
+            
             let trainsInStation = {};
             Object.entries(currentTrains).forEach(([trainId, train]) => {
                 let trainCoords;

@@ -2,29 +2,31 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
-    font-family: 'Arial';
+    width: 100%;
 }
 
 .container {
-    display: flex;
+    position: relative;
     height: 100%;
-}
-
-.left-column {
-    width: 80%; /* Définir une largeur initiale pour la colonne gauche */
-    height: 100%;
-    background-color: #f0f0f0; /* Couleur de fond pour la colonne gauche */
+    width: 100%;
 }
 
 .right-column {
-    width: 20%; /* Définir une largeur initiale pour la colonne droite */
-    height: 100%;
-    white-space: nowrap;
-    background-color: #d0d0d0; /* Couleur de fond pour la colonne droite */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 20%;
+    background-color: #d0d0d0;
     padding-left: 20px;
+    white-space: nowrap;
 }
 
+.left-column {
+    height: 100%;
+    width: 100%;
+    background-color: #f0f0f0;
+}
 
 
 .full-screen-image {
