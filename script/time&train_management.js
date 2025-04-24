@@ -185,13 +185,13 @@ Promise.all([
         document.addEventListener("keydown", async function () {
             if (!isSupervisor) return;
 
-            if (event.key === "ArrowDown") {
+            if (event.key === "PageDown") {
                 if (currentIndex < totalEvents - 1) {
                     currentIndex++;
                     await updateVariable(currentIndex);
                 }
             }
-            else if (event.key === "ArrowUp") {
+            else if (event.key === "PageUp") {
                 if (currentIndex > 0) {
                     currentIndex--;
                     await updateVariable(currentIndex);
